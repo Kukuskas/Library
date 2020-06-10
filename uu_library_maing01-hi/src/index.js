@@ -22,7 +22,7 @@ export function render(targetElementId) {
 
   UU5.Common.DOM.render(
     <AppContainer>
-      <Spa />
+      <Spa /> 
     </AppContainer>,
     document.getElementById(targetElementId)
   );

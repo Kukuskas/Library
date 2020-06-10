@@ -7,6 +7,7 @@ import "uu_plus4u5g01-app";
 
 import Config from "./config/config.js";
 import Lsi from "../config/lsi.js";
+// import {JokesConsumer} from "./jokes-provider.js";
 //@@viewOff:imports
 
 const STATICS = {
@@ -50,7 +51,14 @@ export const Left = createVisualComponent({
           // NOTE Item "id" equals to useCase so that item gets automatically selected when route changes (see spa-autheticated.js).
           items={[{ id: "home", href: "home", content: <UU5.Bricks.Lsi lsi={Lsi.left.home} /> }]}
         />
+        <Plus4U5.App.MenuTree
+                      borderBottom
+                      // NOTE Item "id" equals to useCase so that item gets automatically selected when route changes (see spa-autheticated.js).
+                      items={[{ id: "main", href: "main", content: <UU5.Bricks.Lsi lsi={Lsi.left.uulibrary} /> }]}
+                    />
       </Plus4U5.App.Left>
+      
+                  
     );
     //@@viewOff:render
   }

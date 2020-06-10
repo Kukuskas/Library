@@ -9,6 +9,10 @@ const Lsi = {
       cs: "Vítejte",
       en: "Welcome"
     },
+    uulibrary: {
+      cs: "Aplikace",
+      en: "Application"
+    },
     about: {
       cs: "O aplikaci",
       en: "About Application"
