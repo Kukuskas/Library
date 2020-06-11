@@ -14,6 +14,7 @@ const WARNINGS = {
 class LibraryMainAbl {
   constructor() {
     this.validator = Validator.load();
+    this.dao = DaoFactory.getDao("libraryMain");
   }
 
   async init(awid, dtoIn) {
@@ -54,10 +55,12 @@ class LibraryMainAbl {
     // TODO Implement according to application needs...
 
     // HDS N+1
+    //dtoOut.uuAppErrorMap = uuAppErrorMap;
     return {
       uuAppErrorMap: uuAppErrorMap
     };
   }
+
 }
 
 module.exports = new LibraryMainAbl();

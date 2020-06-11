@@ -8,10 +8,20 @@
     }
   },
   "*": {
-    "profileList": ["Authorities", "Executives", "AwidOwner"],
+    "profileList": ["Public", "Readers", "Authorities", "AwidOwner"],
     "useCaseMap": {
       "init": ["AwidOwner"],
-      "defaultUve": ["Public"]
+      "defaultUve": ["Public"],
+      "location/create": ["Public"],
+      "location/update": ["Public"],
+      "location/getByID": ["Public"],
+      "location/list": ["Public"],
+      "location/delete": ["Public"],
+      "book/create": ["Readers", "Authorities", "AwidOwner"],
+      "book/list": ["Public"],
+      "book/update": ["Public"],
+      "book/delete": ["Public"],
+      "book/getBook": ["Public"]
     }
   }
 }

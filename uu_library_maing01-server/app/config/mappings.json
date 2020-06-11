@@ -10,6 +10,56 @@
         "realization": "index.html",
         "httpMethod": "GET",
         "type": "UVE"
+      },
+      "location/create": {
+        "realization": "api/controllers/LocationController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/update": {
+        "realization": "api/controllers/LocationController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/getByID": {
+        "realization": "api/controllers/LocationController.getByID",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/list": {
+        "realization": "api/controllers/LocationController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/delete": {
+        "realization": "api/controllers/LocationController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "book/create": {
+        "realization": "api/controllers/BooksController.create",
+        "httpMethod": ["POST"],
+        "type": "CMD"
+      },
+      "book/list": {
+        "realization": "api/controllers/BooksController.list",
+        "httpMethod": ["GET"],
+        "type": "CMD"
+      },
+      "book/update": {
+        "realization": "api/controllers/BooksController.update",
+        "httpMethod": ["POST"],
+        "type": "CMD"
+      },
+      "book/delete": {
+        "realization": "api/controllers/BooksController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "book/getBook": {
+        "realization": "api/controllers/BooksController.getBook",
+        "httpMethod": "GET",
+        "type": "CMD"
       }
     }
   }
