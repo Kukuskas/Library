@@ -5,13 +5,14 @@ const TAG = Config.TAG + "Bricks.";
 
 export default {
   ...Config,
-
-  TAG,
+  
+  TAG: Config.TAG + "Bricks.",
   Css: UU5.Common.Css.createCssModule(
     TAG.replace(/\.$/, "")
       .toLowerCase()
       .replace(/\./g, "-")
       .replace(/[^a-z-]/g, ""),
+      Config.CSS + "bricks-",
     process.env.NAME + "/" + process.env.OUTPUT_NAME + "@" + process.env.VERSION // this helps preserve proper order of styles among loaded libraries
   )
 };

@@ -2,6 +2,7 @@ import { AppContainer } from "react-hot-loader";
 import UU5 from "uu5g04";
 
 import Spa from "./core/spa.js";
+import Form from "./library/create-form"
 
 // propagate app version into environment
 UU5.Environment["appVersion"] = process.env.VERSION;
