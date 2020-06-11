@@ -5,7 +5,10 @@ const bookCreateDtoInType = shape({
   genre: string(200)
 });
 
-const bookListDtoInType = shape({});
+const bookListDtoInType = shape({
+  title: string(200),
+  author: string(200)
+});
 
 const bookUpdateDtoInType = shape({
   id: id().isRequired(),

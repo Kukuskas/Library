@@ -32,10 +32,8 @@ class BooksAbl {
   }
 
   async create(awid, dtoIn, session, authorizationResult) {
-    // hds 1, 1.1
     let validationResult = this.validator.validate("bookCreateDtoInType", dtoIn);
 
-    // hds 1.2, 1.3 // A1, A2
     let uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
@@ -43,14 +41,11 @@ class BooksAbl {
       Errors.Create.InvalidDtoIn
     );
 
-    // hds 2
     dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
 
-    // hds 3
     dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
     dtoIn.uuIdentityName = session.getIdentity().getName();
 
-    // hds 4
     dtoIn.awid = awid;
     let dtoOut;
     try {
@@ -74,7 +69,7 @@ class BooksAbl {
     let dtoOut;
     dtoIn.awid = awid;
     try {
-      dtoOut = await this.dao.list(awid);
+      dtoOut = await this.dao.list(awid, dtoIn);
     } catch (e) {
       if (e instanceof ObjectStoreError) { // A3
         throw new Errors.List.BookDaoListFailed({uuAppErrorMap}, e);
@@ -84,9 +79,19 @@ class BooksAbl {
     return dtoOut;
   };
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, session, authorizationResult) {
     let validationResult = this.validator.validate("bookUpdateDtoInType", dtoIn);
-    let uuAppErrorMap = ValidationHelper.processValidationResult(dtoIn, validationResult, WARNINGS.updateUnsupportedKeys.code, Errors.Update.InvalidDtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.updateUnsupportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+
+    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    dtoIn.uuIdentityName = session.getIdentity().getName();
     let dtoOut;
     dtoIn.awid = awid;
     console.log(dtoIn);
@@ -102,9 +107,19 @@ class BooksAbl {
     return dtoOut;
   };
 
-  async delete(awid, dtoIn) {
+  async delete(awid, dtoIn, session, authorizationResult) {
     let validationResult = this.validator.validate("bookDeleteDtoInType", dtoIn);
-    let uuAppErrorMap = ValidationHelper.processValidationResult(dtoIn, validationResult, WARNINGS.deleteUnsupportedKeys.code, Errors.Delete.InvalidDtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.deleteUnsupportedKeys.code,
+      Errors.Delete.InvalidDtoIn
+    );
+
+    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+
+    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    dtoIn.uuIdentityName = session.getIdentity().getName();
     let dtoOut;
     dtoIn.awid = awid;
     try {

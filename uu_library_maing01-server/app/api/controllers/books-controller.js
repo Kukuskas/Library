@@ -12,11 +12,11 @@ class BooksController {
   }
 
   update(ucEnv) {
-    return BooksAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return BooksAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
 
   delete(ucEnv){
-    return BooksAbl.delete(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return BooksAbl.delete(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
 
   getBook(ucEnv){

@@ -12,15 +12,15 @@
     "useCaseMap": {
       "init": ["AwidOwner"],
       "defaultUve": ["Public"],
-      "location/create": ["Public"],
-      "location/update": ["Public"],
+      "location/create": ["Readers", "Authorities", "AwidOwner"],
+      "location/update": ["Readers", "Authorities", "AwidOwner"],
       "location/getByID": ["Public"],
       "location/list": ["Public"],
-      "location/delete": ["Public"],
+      "location/delete": ["Readers", "Authorities", "AwidOwner"],
       "book/create": ["Readers", "Authorities", "AwidOwner"],
       "book/list": ["Public"],
-      "book/update": ["Public"],
-      "book/delete": ["Public"],
+      "book/update": ["Readers", "Authorities", "AwidOwner"],
+      "book/delete": ["Readers", "Authorities", "AwidOwner"],
       "book/getBook": ["Public"]
     }
   }

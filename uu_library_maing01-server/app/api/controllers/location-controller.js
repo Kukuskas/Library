@@ -4,10 +4,10 @@ const LocationAbl = require("../../abl/location-abl");
 
 class LocationController {
   create(ucEnv) {
-    return LocationAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return LocationAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
   update(ucEnv) {
-    return LocationAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return LocationAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
   getByID(ucEnv){
     return LocationAbl.getByID(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
@@ -16,7 +16,7 @@ class LocationController {
     return LocationAbl.list(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
   delete(ucEnv){
-    return LocationAbl.delete(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return LocationAbl.delete(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
 }
 

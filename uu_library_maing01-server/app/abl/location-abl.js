@@ -22,16 +22,26 @@ const WARNINGS = {
     code: `${Errors.Delete.UC_CODE}unsupportedKeys`
   }
 };
-
+const AUTHORITIES_PROFILE = "Authorities";
 class LocationAbl {
   constructor() {
     this.validator = Validator.load();
     this.dao = DaoFactory.getDao('location')
   }
 
-  async create(awid, dtoIn) {
+  async create(awid, dtoIn, session, authorizationResult) {
     let validationResult = this.validator.validate("locationCreateDtoInType", dtoIn);
-    let uuAppErrorMap = ValidationHelper.processValidationResult(dtoIn, validationResult, WARNINGS.createUnsupportedKeys.code, Errors.Create.InvalidDtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.createUnsupportedKeys.code,
+      Errors.Create.InvalidDtoIn
+    );
+
+    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+
+    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    dtoIn.uuIdentityName = session.getIdentity().getName();
 
     let dtoOut;
     dtoIn.awid = awid;
@@ -46,9 +56,18 @@ class LocationAbl {
       return dtoOut;
     }
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, session, authorizationResult) {
     let validationResult = this.validator.validate("locationUpdateDtoInType", dtoIn);
-    let uuAppErrorMap = ValidationHelper.processValidationResult(dtoIn, validationResult, WARNINGS.updateUnsupportedKeys.code, Errors.Update.InvalidDtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.updateUnsupportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+
+    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    dtoIn.uuIdentityName = session.getIdentity().getName();
     let dtoOut;
     dtoIn.awid = awid;
     try {
@@ -93,9 +112,18 @@ class LocationAbl {
     return dtoOut;
   };
 
-  async delete(awid, dtoIn) {
+  async delete(awid, dtoIn, session, authorizationResult) {
     let validationResult = this.validator.validate("locationDeleteDtoInType", dtoIn);
-    let uuAppErrorMap = ValidationHelper.processValidationResult(dtoIn, validationResult, WARNINGS.deleteUnsupportedKeys.code, Errors.Delete.InvalidDtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.deleteUnsupportedKeys.code,
+      Errors.Delete.InvalidDtoIn
+    );
+    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+
+    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    dtoIn.uuIdentityName = session.getIdentity().getName();
     let dtoOut;
     dtoIn.awid = awid;
     try {
