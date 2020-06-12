@@ -1,11 +1,11 @@
 {
   "privilegedUserMap": {
-    "asidOwner": "14-2710-1"
+    "asidOwner": "25-1622-1"
   },
   "asid": "11111111111111111111111111111111",
   "sysAppWorkspace": {
     "awid": "22222222222222222222222222222222",
-    "awidOwner": "14-2710-1",
+    "awidOwner": "25-1622-1",
     "licenseOwner": {
       "organization": {
         "name": "Test Organization",
@@ -14,8 +14,8 @@
       },
       "userList": [
         {
-          "uuIdentity": "14-2710-1",
-          "name": "Test User"
+          "uuIdentity": "25-1622-1",
+          "name": "AwidOwner"
         }
       ]
     }
@@ -24,16 +24,31 @@
     "AsidOwner": {
       "accessCode1": "3yMhD1qzi0JUwsAJ7UOsWX2YtrGH_Olk5DxgWyssNW6e_WC4wjKrXODHES92cQXp",
       "accessCode2": "Cq%iaz#9w-#z7C8yZlZoC$DsebIK2JGWyDK8lg8J7vLFSKXtYFt5tn3eI3WthZtI",
-      "uuIdentity": "14-2710-1"
+      "uuIdentity": "25-1622-1"
     },
     "AwidOwner": {
       "accessCode1": "3yMhD1qzi0JUwsAJ7UOsWX2YtrGH_Olk5DxgWyssNW6e_WC4wjKrXODHES92cQXp",
       "accessCode2": "Cq%iaz#9w-#z7C8yZlZoC$DsebIK2JGWyDK8lg8J7vLFSKXtYFt5tn3eI3WthZtI",
-      "uuIdentity": "14-2710-1",
-      "profileList": ["Authorities", "Executives"]
+      "uuIdentity": "25-1622-1",
+      "profileList": ["AwidOwner"]
+    },
+    "Authority": {
+      "accessCode1": "UafUaf",
+      "accessCode2": "tester4321",
+      "uuIdentity": "19-7019-1",
+      "profileList": ["Authorities"]
+    },
+    "Executive": {
+      "accessCode1": "3yMhD1qzi0JUwsAJ7UOsWX2YtrGH_Olk5DxgWyssNW6e_WC4wjKrXODHES92cQXp",
+      "accessCode2": "Cq%iaz#9w-#z7C8yZlZoC$DsebIK2JGWyDK8lg8J7vLFSKXtYFt5tn3eI3WthZtI",
+      "uuIdentity": "25-1622-1",
+      "profileList": ["Executives"]
+    },
+    "Reader": {
+      "accessCode1": "3yMhD1qzi0JUwsAJ7UOsWX2YtrGH_Olk5DxgWyssNW6e_WC4wjKrXODHES92cQXp",
+      "accessCode2": "Cq%iaz#9w-#z7C8yZlZoC$DsebIK2JGWyDK8lg8J7vLFSKXtYFt5tn3eI3WthZtI",
+      "uuIdentity": "25-1622-1",
+      "profileList": ["Readers"]
     }
-  },
-  "log_level": "FATAL",
-  "uuapp.appserver.monitoring.accesslog.log_level": "OFF",
-  "uuapp.perflog.logger.log_level": "OFF"
+  }
 }

@@ -3,11 +3,11 @@ import UU5 from "uu5g04";
 import Config from "./config/config.js";
 // import {whitelistedKeys} from "../helpers/object-utils";
 
-const JokesContext = UU5.Common.Context.create();
-const JokesConsumer = JokesContext.Consumer;
+const BooksContext = UU5.Common.Context.create();
+const BooksConsumer = BooksContext.Consumer;
 
 
-const JokesProvider = UU5.Common.Component.create({
+const BooksProvider = UU5.Common.Component.create({
 
   //@@viewOn:statics
   statics: {
@@ -44,7 +44,7 @@ const JokesProvider = UU5.Common.Component.create({
   //@@viewOn:interface
   setData(data, setStateCallback) {
     // filter out keys, no possibility to set awid or userProfiles
-    let newData = UU5.Common.Tools.merge(this.state.data, whitelistedKeys(data, "state", "name", "categoryList", "logos"));
+    let newData = UU5.Common.Tools.merge(this.state.data, data);//whitelistedKeys(data, "state", "name", "categoryList", "logos")
     this.setState({data: newData}, setStateCallback);
     return this;
   },
@@ -59,14 +59,14 @@ const JokesProvider = UU5.Common.Component.create({
   //@@viewOn:render
   render() {
     return (
-      <JokesContext.Provider value={this.state.data}>
+      <BooksContext.Provider value={this.state.data}>
         {this.props.children}
-      </JokesContext.Provider>
+      </BooksContext.Provider>
     );
   }
   //@@viewOff:render
 });
 
-export {JokesConsumer, JokesProvider};
-export default JokesProvider;
+export {BooksConsumer, BooksProvider};
+export default BooksProvider;
 

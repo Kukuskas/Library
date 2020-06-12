@@ -2,8 +2,8 @@ import UU5 from "uu5g04";
 
 export const About = {
   about: {
-    cs: "Aplikace pro přidávání a správu knih v knihovně.",
-    en: "Application for adding and editting books in library."
+    cs: "Aplikace pro správu knih v knihovně.",
+    en: "Application for books management in library."
   },
   licence: {
     termsOfUse: "https://unicorn.com/tou/your_product",
@@ -56,13 +56,13 @@ export const About = {
         en: "Developer"
       }
     },
-    {
-      name: "More Names",
-      uuIdentity: "4-4-1",
-      role: {
-        en: "Developer"
-      }
-    }
+    // {
+    //   name: "More Names",
+    //   uuIdentity: "4-4-1",
+    //   role: {
+    //     en: "Developer"
+    //   }
+    // }
   ],
   usedTechnologies: {
     technologies: {
