@@ -1,7 +1,7 @@
 {
   "port": 8080,
   "uuSubAppDataStoreMap": {
-    "primary": "mongodb://127.0.0.1:27017/libraryMainPrimary"
+    "primary": "mongodb://127.0.0.1:27017/UuBooksOS"
   },
   "privilegedUserMap": {
     "asidOwner": "25-1622-1"
