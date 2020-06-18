@@ -85,6 +85,16 @@ export const List = UU5.Common.VisualComponent.create({
               this.props.data.name
             }
           </span>
+          <span>
+            {
+              this.props.data.author
+            }
+          </span>
+          <span>
+            {
+              this.props.data.location
+            }
+          </span>
         </UU5.Bricks.Div>
 
         <UU5.Common.Identity>

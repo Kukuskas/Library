@@ -13,8 +13,8 @@ let Calls = {
     return response.data;
   },
 
-  loadDemoContent(dtoIn) {
-    let commandUri = Calls.getCommandUri("loadDemoContent");
+  bookList(dtoIn) {
+    let commandUri = Calls.getCommandUri("book/list");
     return Calls.call("get", commandUri, dtoIn);
   },
 

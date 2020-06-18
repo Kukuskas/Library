@@ -166,16 +166,12 @@ export const Library = UU5.Common.VisualComponent.create({
                 <UU5.Common.Identity>
                   {({identity}) =>
                     <BooksReady
-                      data={this._filterOutVisibility(data, identity)}
                       detailId={dig(this.props, "params", "id")}
                       onCreate={data => {
                         return this._handleCreate(data, handleCreate);
                       }}
                       onUpdate={data => {
                         return this._handleUpdate(data, handleUpdate);
-                      }}
-                      onRate={data => {
-                        return this._handleRate(data, handleUpdate);
                       }}
                       onDelete={data => {
                         return this._handleDelete(data, handleDelete);
