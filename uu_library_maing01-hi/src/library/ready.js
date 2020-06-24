@@ -5,7 +5,7 @@ import "uu5g04-bricks";
 
 import Config from "./config/config.js";
 import FormModal from "../bricks/form-modal";
-// import TileList from "../bricks/tile-list.js";???
+// import TileList from "../bricks/tile-list.js";
 
 import List from "./list.js";
 import CreateForm from "./create-form.js";
@@ -34,9 +34,9 @@ export const Books = UU5.Common.VisualComponent.create({
   //@@viewOn:propTypes
   propTypes: {
     detailId: UU5.PropTypes.string,
-    onCreate: UU5.PropTypes.func.isRequired,
-    onUpdate: UU5.PropTypes.func.isRequired,
-    onDelete: UU5.PropTypes.func.isRequired,
+    // onCreate: UU5.PropTypes.func.isRequired,
+    // onUpdate: UU5.PropTypes.func.isRequired,
+    // onDelete: UU5.PropTypes.func.isRequired,
   },
   //@@viewOff:propTypes
 

@@ -5,6 +5,7 @@ import "uu5g04-bricks";
 import Calls from "calls";
 
 import Config from "./config/config.js";
+import Uu5Tiles from "uu5tilesg02";
 import BooksReady from "../library/ready.js";
 // import {dig} from "../helpers/object-utils.js";
 // import {reportSuccess, reportError} from "../helpers/alert-helper";
@@ -51,7 +52,7 @@ export const Library = UU5.Common.VisualComponent.create({
   //@@viewOn:private
   _handleUpdate(data, updateBook) {
     // set new data (temporally)
-    updateBook(data.id, {...data, inProgress: true}, undefined, null, "updateBooks")
+    updateBook(data.id, { ...data, inProgress: true }, undefined, null, "updateBooks")
       .then(() => this._handleUpdateDone())
       .catch(response => this._handleUpdateFail(response));
   },
@@ -66,7 +67,6 @@ export const Library = UU5.Common.VisualComponent.create({
   //   reportError(this.getLsiComponent("updateFailHeader"), this._decideErrorDescription(response));
   // },
 
-
   // _handleRateDone() {
   //   // display alert
   //   reportSuccess(this.getLsiComponent("rateSuccessHeader"));
@@ -77,11 +77,20 @@ export const Library = UU5.Common.VisualComponent.create({
   //   reportError(this.getLsiComponent("rateFailHeader"), this._decideErrorDescription(response));
   // },
 
-
+  _dig(object, ...keys) {
+    let pointer = object;
+    for (let key of keys) {
+      if (!pointer[key]) {
+        return null; // missing key, no need to continue
+      }
+      pointer = pointer[key];
+    }
+    return pointer;
+  },
 
   _handleCreate(data, createJoke) {
     // add new one
-    createJoke({...data, inProgress: true})
+    createBook({ ...data, inProgress: true })
       .then(() => this._handleCreateDone())
       .catch(response => this._handleCreateFail(response));
   },
@@ -150,51 +159,74 @@ export const Library = UU5.Common.VisualComponent.create({
 
   //@@viewOn:render
   render() {
+    let books = Calls.monkeyFunction;
+    function renderItem(item) {
+      return <div book={item.data} colorschema="green"  />;
+    }
+   
+    if (books.length === 0) {
+      return <UU5.Common.Error content="No jokes!" />;
+    }
+
     return (
-      <UU5.Bricks.Div {...this.getMainPropsToPass()}>
-        <UU5.Common.ListDataManager
-          onLoad={Calls.bookList}
-          onCreate={Calls.bookCreate}
-          onDelete={Calls.bookDelete}
-          // onUpdate={{
-          //   updateJoke: Calls.updateJoke
-          // }}
+      <UU5.Bricks.Div>
+
+              
+              <UU5.Forms.Form {...this.getMainPropsToPass()} ref_={this._registerForm}>
+        <UU5.Bricks.Row className={this.getClassName().formRow} display="flex">
+          <UU5.Bricks.Column colWidth="xs-12 s-6 m-5 l-4 xl-3">
+            <UU5.Forms.Select
+              name="type"
+              value={this.state.selectedType}
+              onChange={this._handleTypeSelection}
+              inputColWidth="xs-12 s-11 m-7"
+              placeholder={this.getLsiValue("filterTypePlaceholder")}
+            >
+                        <UU5.Forms.Select.Option value="Author" />
+            <UU5.Forms.Select.Option value="Lokace" />
+            <UU5.Forms.Select.Option value="Název" />  
+            </UU5.Forms.Select>
+
+          </UU5.Bricks.Column>
+          
+        </UU5.Bricks.Row>
+      </UU5.Forms.Form>
+              
+                       <Uu5Tiles.Grid
+     data={books}
+     tileHeight="auto"
+     tileMinWidth={200}
+     tileMaxWidth={400}
+     tileSpacing={8}
+     rowSpacing={8}
+   >
+     {renderItem}
+   </Uu5Tiles.Grid>     
+              
+      
+        <UU5.Forms.Form 
+          header={<UU5.Bricks.Box content="Add book" colorSchema="blue" className="font-size-xl" />}
+          onSave={({ component, values }) => this._handleCreate(component, values)}
+          
+          // onCancel={({component}) => this._onCancel(component)}
         >
-          {({data, handleCreate, handleUpdate, handleDelete}) => {
-            if (data) {
-              return (
-                <UU5.Common.Identity>
-                  {({identity}) =>
-                    <BooksReady
-                      detailId={dig(this.props, "params", "id")}
-                      onCreate={data => {
-                        return this._handleCreate(data, handleCreate);
-                      }}
-                      onUpdate={data => {
-                        return this._handleUpdate(data, handleUpdate);
-                      }}
-                      onDelete={data => {
-                        return this._handleDelete(data, handleDelete);
-                      }}
-                      onUpdateVisibility={data => {
-                        return this._handleUpdateVisibility(data, handleUpdate);
-                      }}
-                    />
-                  }
-                </UU5.Common.Identity>
-              );
-            } else {
-              return <UU5.Bricks.Loading/>;
-            }
-          }}
-        </UU5.Common.ListDataManager>
-      </UU5.Bricks.Div>
+          <UU5.Bricks.Modal ref_={modal => (this._modal = modal)} />
+
+          <UU5.Forms.Text style="width:65%" name="Title" label="Title" />
+          <UU5.Forms.Text style="width:65%" name="author" label="Author" />
+          <UU5.Forms.Select style="width:65%" name="location" label="Location" required>
+            <UU5.Forms.Select.Option value="Prague" />
+            <UU5.Forms.Select.Option value="Brno" />
+            <UU5.Forms.Select.Option value="Pilsen" />
+          </UU5.Forms.Select>
+          <UU5.Bricks.Div style="width:90%" className="text-center">
+            <UU5.Forms.Controls />
+          </UU5.Bricks.Div>
+        </UU5.Forms.Form>
+        </UU5.Bricks.Div>
     );
   }
   //@@viewOff:render
 });
 
 export default Library;
-
-
-  
