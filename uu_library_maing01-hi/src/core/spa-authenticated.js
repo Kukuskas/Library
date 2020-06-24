@@ -9,7 +9,8 @@ import Config from "./config/config";
 import Left from "./left";
 import Bottom from "./bottom";
 import Home from "../routes/home";
-import Library from "../routes/books"
+import Library from "../routes/books";
+import Location from "../routes/location";
 //@@viewOff:imports
 
 const STATICS = {
@@ -25,6 +26,7 @@ const ROUTES = {
   "": DEFAULT_USE_CASE,
   home: { component: <Home /> },
   library: { component: <Library /> },
+  location: { component: <Location />},
   about: { component: <About /> }
 };
 

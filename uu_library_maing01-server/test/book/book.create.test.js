@@ -19,7 +19,7 @@ describe("Book uuCMD tests", () => {
     let dtoIn = {
       title: "Head First - Javascript",
       author: "ORELLY",
-      genre: "Education"
+      location: "Prague"
     };
     let result = await TestHelper.executePostCommand("book/create", dtoIn);
 
@@ -42,7 +42,7 @@ describe("Book uuCMD tests", () => {
     let dtoIn = {
       title: "Head First - Javascript",
       author: "ORELLY",
-      genre: "Education"
+      location: "Prague"
     };
     let result = await TestHelper.executePostCommand("book/create", dtoIn);
 
@@ -65,7 +65,7 @@ describe("Book uuCMD tests", () => {
     let dtoIn = {
       title: "Head First - Javascript",
       author: "ORELLY",
-      genre: "Education"
+      Location: "Prague"
     };
     try {
       await TestHelper.executePostCommand("book/create", dtoIn);

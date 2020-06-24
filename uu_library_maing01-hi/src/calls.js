@@ -8,57 +8,19 @@ let Calls = {
   /** URL containing app base, e.g. "https://uuos9.plus4u.net/vnd-app/awid/". */
   APP_BASE_URI: location.protocol + "//" + location.host + UU5.Environment.getAppBasePath(),
 
-  // async call(method, url, dtoIn, clientOptions) {
-  //   let response = await Plus4U5.Common.Calls.call(method, url, dtoIn, clientOptions);
-  //   return response.data;
-  // },
-   monkeyFunction : [{
-    "title": "Pejsek a Kočička",
-    "author": "Bulgakova",
-    "visibility": false,
-    "uuIdentity": "25-1622-1",
-    "uuIdentityName": "Alexandr Kozlov",
-    "awid": "22222222222222222222222222222222",
-    "sys": {
-      "cts": "2020-06-22T23:09:30.845Z",
-      "mts": "2020-06-22T23:09:30.845Z",
-      "rev": 0
-    },
-    "id": "5ef13a2afc0c276c70e64602"
+  async call(method, url, dtoIn, clientOptions) {
+    let response = await Plus4U5.Common.Calls.call(method, url, dtoIn, clientOptions);
+    return response.data;
   },
-  {
-    "title": "Pejsek a Kočičkfhdgha",
-    "author": "Bulgakovafghfgh",
-    "visibility": false,
-    "uuIdentity": "25-1622-1",
-    "uuIdentityName": "Alexandr Kozlov",
-    "awid": "22222222222222222222222222222222",
-    "sys": {
-      "cts": "2020-06-22T23:09:40.860Z",
-      "mts": "2020-06-22T23:09:40.860Z",
-      "rev": 0
-    },
-    "id": "5ef13a34fc0c276c70e64604"
+   
+
+  bookList(dtoIn) {
+    console.log("první", dtoIn);
+    let commandUri = Calls.getCommandUri("book/list");
+    console.log(commandUri, dtoIn);
+    
+    return Calls.call("get", commandUri, dtoIn);
   },
-  {
-    "title": "Pejdfdfsek a Kočičkfhdgha",
-    "author": "Bulgakovafghfgh",
-    "visibility": false,
-    "uuIdentity": "25-1622-1",
-    "uuIdentityName": "Alexandr Kozlov",
-    "awid": "22222222222222222222222222222222",
-    "sys": {
-      "cts": "2020-06-22T23:09:46.613Z",
-      "mts": "2020-06-22T23:09:46.613Z",
-      "rev": 0
-    },
-    "id": "5ef13a3afc0c276c70e64606"
-  }],
-  // bookList() {
-  //   let commandUri = Calls.getCommandUri("book/list");
-  //   
-  //   return Calls.call("get", commandUri, dtoIn);*/
-  // },
 
   /*
   For calling command on specific server, in case of developing client site with already deployed
@@ -76,39 +38,39 @@ let Calls = {
      }
    }
    */
-  // getCommandUri(aUseCase) {
-  //   // useCase <=> e.g. "getSomething" or "sys/getSomething"
-  //   // add useCase to the application base URI
-  //   let targetUriStr = Calls.APP_BASE_URI + aUseCase.replace(/^\/+/, "");
+  getCommandUri(aUseCase) {
+    // useCase <=> e.g. "getSomething" or "sys/getSomething"
+    // add useCase to the application base URI
+    let targetUriStr = Calls.APP_BASE_URI + aUseCase.replace(/^\/+/, "");
 
-  //   // override tid / awid if it's present in environment (use also its gateway in such case)
-  //   if (process.env.NODE_ENV !== "production") {
-  //     let env = UU5.Environment;
-  //     if (env.tid || env.awid || env.vendor || env.app) {
-  //       let url = Plus4U5.Common.Url.parse(targetUriStr);
-  //       if (env.tid || env.awid) {
-  //         if (env.gatewayUri) {
-  //           let match = env.gatewayUri.match(/^([^:]*):\/\/([^/]+?)(?::(\d+))?(\/|$)/);
-  //           if (match) {
-  //             url.protocol = match[1];
-  //             url.hostName = match[2];
-  //             url.port = match[3];
-  //           }
-  //         }
-  //         if (env.tid) url.tid = env.tid;
-  //         if (env.awid) url.awid = env.awid;
-  //       }
-  //       if (env.vendor || env.app) {
-  //         if (env.vendor) url.vendor = env.vendor;
-  //         if (env.app) url.app = env.app;
-  //         if (env.subApp) url.subApp = env.subApp;
-  //       }
-  //       targetUriStr = url.toString();
-  //     }
-  //   }
+    // override tid / awid if it's present in environment (use also its gateway in such case)
+    if (process.env.NODE_ENV !== "production") {
+      let env = UU5.Environment;
+      if (env.tid || env.awid || env.vendor || env.app) {
+        let url = Plus4U5.Common.Url.parse(targetUriStr);
+        if (env.tid || env.awid) {
+          if (env.gatewayUri) {
+            let match = env.gatewayUri.match(/^([^:]*):\/\/([^/]+?)(?::(\d+))?(\/|$)/);
+            if (match) {
+              url.protocol = match[1];
+              url.hostName = match[2];
+              url.port = match[3];
+            }
+          }
+          if (env.tid) url.tid = env.tid;
+          if (env.awid) url.awid = env.awid;
+        }
+        if (env.vendor || env.app) {
+          if (env.vendor) url.vendor = env.vendor;
+          if (env.app) url.app = env.app;
+          if (env.subApp) url.subApp = env.subApp;
+        }
+        targetUriStr = url.toString();
+      }
+    }
 
-  //   return targetUriStr;
-  // }
+    return targetUriStr;
+  }
 };
 
 export default Calls;

@@ -5,7 +5,7 @@ import "uu5g04-forms";
 
 import Config from "./config/config.js";
 
-import {BooksConsumer} from "../core/books-provider.js";
+import {BooksConsumer} from "../core/book-provider.js";
 
 import "./create-form.less";
 import LSI from "./create-form-lsi.js";
