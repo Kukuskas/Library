@@ -14,7 +14,7 @@ let Calls = {
   },
    
 
-  bookList(dtoIn) {
+  listBooks(dtoIn) {
     console.log("první", dtoIn);
     let commandUri = Calls.getCommandUri("book/list");
     console.log(commandUri, dtoIn);

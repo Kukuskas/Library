@@ -2,8 +2,8 @@
 import UU5 from "uu5g04";
 import "uu5g04-bricks";
 // import "uu5tilesg01";
+import Calls from "calls";
 
-import BookProvider from "../core/book-provider";
 import Config from "./config/config.js";
 import Uu5Tiles from "uu5tilesg02";
 import BooksReady from "../library/ready.js";
@@ -159,7 +159,7 @@ export const Library = UU5.Common.VisualComponent.create({
 
   //@@viewOn:render
   render() {
-    let books = Calls.monkeyFunction;
+    let books = {data: (a, b, c)};
     function renderItem(item) {
       return <div book={item.data} colorschema="green"  />;
     }
@@ -167,17 +167,6 @@ export const Library = UU5.Common.VisualComponent.create({
     if (books.length === 0) {
       return <UU5.Common.Error content="No jokes!" />;
     }
-
-    <Uu5Tiles.Grid
-    data={books}
-    tileHeight="auto"
-    tileMinWidth={200}
-    tileMaxWidth={400}
-    tileSpacing={8}
-    rowSpacing={8}
-  >
-    {renderItem}
-  </Uu5Tiles.Grid> 
 
     return (
       <UU5.Bricks.Div>
@@ -203,7 +192,16 @@ export const Library = UU5.Common.VisualComponent.create({
         </UU5.Bricks.Row>
       </UU5.Forms.Form>
               
-    
+                       <Uu5Tiles.Grid
+     data={books}
+     tileHeight="auto"
+     tileMinWidth={200}
+     tileMaxWidth={400}
+     tileSpacing={8}
+     rowSpacing={8}
+   >
+     {renderItem}
+   </Uu5Tiles.Grid>     
               
       
         <UU5.Forms.Form 
