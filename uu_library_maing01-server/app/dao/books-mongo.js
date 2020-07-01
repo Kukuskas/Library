@@ -8,6 +8,11 @@ class BooksMongo extends UuObjectDao {
   }
 
   async create(book) {
+    // book.id= GetId();
+    // console.log("OOOOOOOOOOO");
+    
+    console.log(book);
+    console.log("OOOOOOOOOOO");
     return await super.insertOne(book);
   }
 
