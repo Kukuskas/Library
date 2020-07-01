@@ -19,8 +19,16 @@ class LocationMongo extends UuObjectDao{
     return await super.findOne({awid, id: location.id})
   };
 
-  async list(awid){
-    return await super.find({awid})
+  async list(awid, name){
+    let conditions= [];
+name && conditions.push({name:name});
+!name && conditions.push({});
+    
+    let filter = {
+      awid,
+      $or: conditions
+    };
+    return await super.find(filter)
   };
 
   async delete(awid, location){

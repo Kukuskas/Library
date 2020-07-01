@@ -1,11 +1,12 @@
 const locationCreateDtoInType = shape({
-  location: string(255).isRequired(),
-  capacity: integer(10000000).isRequired()
+  name: string(255).isRequired(),
+  capacity: integer(10000000).isRequired(),
+  id: id().isRequired(),
 });
 
 const locationUpdateDtoInType = shape({
   id: id().isRequired(),
-  location: string(255).isRequired(),
+  name: string(255).isRequired(),
   capacity: integer(10000000).isRequired()
 });
 

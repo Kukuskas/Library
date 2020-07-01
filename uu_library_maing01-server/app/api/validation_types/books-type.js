@@ -1,5 +1,5 @@
 const bookCreateDtoInType = shape({
-  //id: id().isRequired(),
+  id: id().isRequired(),
   title: string(200).isRequired(),
   author: string(200),
   location: string(200)
@@ -7,7 +7,8 @@ const bookCreateDtoInType = shape({
 
 const bookListDtoInType = shape({
   title: string(200),
-  author: string(200)
+  author: string(200),
+  location: string(200)
 });
 
 const bookUpdateDtoInType = shape({

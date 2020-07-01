@@ -102,7 +102,7 @@ class LocationAbl {
     let dtoOut;
     dtoIn.awid = awid;
     try {
-      dtoOut = await this.dao.list(awid, dtoIn);
+      dtoOut = await this.dao.list(awid, dtoIn.name);
     } catch (e) {
       if (e instanceof ObjectStoreError) { // A3
         throw new Errors.List.LocationDaoListFailed({uuAppErrorMap}, e);

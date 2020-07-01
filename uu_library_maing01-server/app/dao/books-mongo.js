@@ -11,11 +11,17 @@ class BooksMongo extends UuObjectDao {
     return await super.insertOne(book);
   }
 
-  async list(awid, book) {
-    return await super.find({
+  async list(awid, title, author) {
+    let conditions= [];
+title && conditions.push({ title:title });
+author && conditions.push({author:author});
+!title && !author && conditions.push({});
+    
+    let filter = {
       awid,
-      $or: [{ title: book.title }, { author: book.author }, {}]
-    });
+      $or: conditions
+    };
+    return await super.find(filter);
   }
 
   async getBook(awid, book) {
