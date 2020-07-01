@@ -6,22 +6,62 @@ import Plus4U5 from "uu_plus4u5g01";
 
 let Calls = {
   /** URL containing app base, e.g. "https://uuos9.plus4u.net/vnd-app/awid/". */
-  APP_BASE_URI: location.protocol + "//" + location.host + UU5.Environment.getAppBasePath(),
+  APP_BASE_URI: "https://uuapp.plus4u.net/uu-library-maing01/4ef6a7b01b5942ecbfb925b249af987f/",
 
   async call(method, url, dtoIn, clientOptions) {
-    let response = await Plus4U5.Common.Calls.call(method, url, dtoIn, clientOptions);
+    const response = await Plus4U5.Common.Calls.call(method, url, dtoIn, clientOptions);
     return response.data;
   },
-   
 
   listBooks(dtoIn) {
-    console.log("první", dtoIn);
     let commandUri = Calls.getCommandUri("book/list");
-    console.log(commandUri, dtoIn);
-    
     return Calls.call("get", commandUri, dtoIn);
   },
 
+  createBook(dtoIn) {
+    let commandUri = Calls.getCommandUri("book/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+
+  updateBook(dtoIn) {
+    let commandUri = Calls.getCommandUri("book/update");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+
+  deleteBook(dtoIn) {
+    let commandUri = Calls.getCommandUri("book/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+
+  loadBooksInstance(dtoIn) {
+    let commandUri = Calls.getCommandUri("booksInstance/load");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+
+  listLocations(dtoIn) {
+    let commandUri = Calls.getCommandUri("location/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+
+  createLocation(dtoIn) {
+    let commandUri = Calls.getCommandUri("location/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+
+  updateLocation(dtoIn) {
+    let commandUri = Calls.getCommandUri("location/update");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+
+  deleteLocation(dtoIn) {
+    let commandUri = Calls.getCommandUri("location/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+
+  loadLocationsInstance(dtoIn) {
+    let commandUri = Calls.getCommandUri("locationsInstance/load");
+    return Calls.call("get", commandUri, dtoIn);
+  },
 
   /*
   For calling command on specific server, in case of developing client site with already deployed
@@ -72,7 +112,6 @@ let Calls = {
 
     return targetUriStr;
   }
-
 };
 
 export default Calls;

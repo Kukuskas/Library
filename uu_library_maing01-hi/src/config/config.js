@@ -12,37 +12,5 @@ export default {
       .replace(/\./g, "-")
       .replace(/[^a-z-]/g, ""),
     process.env.NAME + "/" + process.env.OUTPUT_NAME + "@" + process.env.VERSION // this helps preserve proper order of styles among loaded libraries
-  ),
-  LEFT_MENU_CCR_KEY: "UuLibrary.LeftMenu",
-
-  AUTH_HOME_ROUTE: "books",
-  NOT_AUTH_HOME_ROUTE: "login",
-
-  FEEDBACK: {
-    LOADING: "loading",
-    READY: "ready",
-    ERROR: "error",
-    INITIAL: "initial",
-    SUCCESS: "success"
-  },
-
-  SCREEN_SIZE: {
-    XS: "xs",
-    S: "s",
-    M: "m",
-    L: "L",
-    XL: "xl"
-  },
-
-  PROFILES: {
-    AUTHORITIES: "Authorities",
-    EXECUTIVES: "Executives"
-  },
-
-  STATES: {
-    ACTIVE: "active",
-    CLOSED: "closed",
-    UNDER_CONSTRUCTION: "underConstruction"
-  },
-
+  )
 };

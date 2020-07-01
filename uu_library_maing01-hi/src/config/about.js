@@ -2,8 +2,8 @@ import UU5 from "uu5g04";
 
 export const About = {
   about: {
-    cs: "Aplikace pro správu knih v knihovně.",
-    en: "Application for books management in library."
+    cs: "Demo aplikace je šablona pro vývoj nových aplikací.",
+    en: "Demo application is a template for developing new applications."
   },
   licence: {
     termsOfUse: "https://unicorn.com/tou/your_product",
@@ -20,13 +20,13 @@ export const About = {
     authorities: {
       cs: [
         {
-          name: "Alexandr Kozlov, Lucie Pokorná, Aituar Abdiluly",
+          name: "Name Surname",
           uri: "https://www.unicorn.com/"
         }
       ],
       en: [
         {
-          name: "Alexandr Kozlov, Lucie Pokorná, Aituar Abdiluly",
+          name: "Name Surname",
           uri: "https://www.unicorn.com/"
         }
       ]
@@ -34,35 +34,35 @@ export const About = {
   },
   leadingAuthors: [
     {
-      name: "Lucie Pokorná",
-      uuIdentity: "25-214-1",
+      name: "Some Name",
+      uuIdentity: "4-4-1",
       role: {
-        en: "Head of Development"
+        en: "Chief Business Architect & Stakeholder"
       }
     },
     {
-      name: "Alexandr Kozlov",
-      uuIdentity: "25-1622-1",
+      name: "Other Name",
+      uuIdentity: "4-4-1",
       role: {
-        en: "Developer"
+        en: "Head of Development"
       }
     }
   ],
   otherAuthors: [
     {
-      name: "Aituar Abdiluly",
-      uuIdentity: "25-1607-1",
+      name: "Your Name",
+      uuIdentity: "4-4-1",
       role: {
         en: "Developer"
       }
     },
-    // {
-    //   name: "More Names",
-    //   uuIdentity: "4-4-1",
-    //   role: {
-    //     en: "Developer"
-    //   }
-    // }
+    {
+      name: "More Names",
+      uuIdentity: "4-4-1",
+      role: {
+        en: "Developer"
+      }
+    }
   ],
   usedTechnologies: {
     technologies: {

@@ -4,19 +4,19 @@ import Calls from "calls";
 import Config from "./config/config";
 //@@viewOff:imports
 
-const BookProvider = createComponent({
+const LocationProvider = createComponent({
   //@@viewOn:statics
-  displayName: Config.TAG + "BookProvider",
+  displayName: Config.TAG + "LocationProvider",
   //@@viewOff:statics
 
   render({ children }) {
     //@@viewOn:hooks
     let listDataValues = usePagingListData({
       dtoIn: { pageInfo: { pageIndex: 0, pageSize: 200 } },
-      onLoad: Calls.listBooks,
-      onCreate: Calls.createBook,
-      onUpdate: handleUpdateBook,
-      onDelete: handleDeleteBook
+      onLoad: Calls.listLocations,
+      onCreate: Calls.createLocation,
+      onUpdate: handleUpdateLocation,
+      onDelete: handleDeleteLocation
     });
 
     let {
@@ -33,13 +33,13 @@ const BookProvider = createComponent({
     //@@viewOff:hooks
 
     //@@viewOn:private
-    async function handleDeleteBook(book) {
-      return await Calls.deleteBook({ id: book.id });
+    async function handleDeleteLocation(location) {
+      return await Calls.deleteLocation({ id: location.id });
     }
 
-    async function handleUpdateBook(id, values) {
+    async function handleUpdateLocation(id, values) {
       try {
-        return await Calls.updateBook({ id, ...values });
+        return await Calls.updateLocation({ id, ...values });
       } catch {
         return Promise.reject();
       }
@@ -62,4 +62,4 @@ const BookProvider = createComponent({
   }
 });
 
-export default BookProvider;
+export default LocationProvider;

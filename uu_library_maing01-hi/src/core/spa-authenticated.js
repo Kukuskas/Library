@@ -8,8 +8,8 @@ import "uu_plus4u5g01-app";
 import Config from "./config/config";
 import Left from "./left";
 import Bottom from "./bottom";
-import Home from "../routes/home";
-import Library from "../routes/books";
+import Home from "../routes/home"; 
+import Books from "../routes/books";
 import Location from "../routes/location";
 //@@viewOff:imports
 
@@ -25,9 +25,10 @@ const DEFAULT_USE_CASE = "home";
 const ROUTES = {
   "": DEFAULT_USE_CASE,
   home: { component: <Home /> },
-  library: { component: <Library /> },
-  location: { component: <Location />},
+  books: { component: <Books /> },
+  location: { component: <Location /> },
   about: { component: <About /> }
+  
 };
 
 export const SpaAuthenticated = createVisualComponent({

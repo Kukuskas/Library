@@ -9,9 +9,9 @@ const Lsi = {
       cs: "Vítejte",
       en: "Welcome"
     },
-    library: {
-      cs: "Aplikace",
-      en: "Application"
+    books: {
+      cs: "Knihy",
+      en: "Books"
     },
     location: {
       cs: "Lokace",
@@ -37,25 +37,7 @@ const Lsi = {
       en: "Terms of use"
     }
   },
-  
-    buttons: {
-      createButton: {
-        cs: "Vytvořit",
-        en: "Create"
-      },
-      updateButton: {
-        cs: "Upravit",
-        en: "Update"
-      },
-      deleteButton: {
-        cs: "Smazat",
-        en: "Delete"
-      },
-      cancelButton: {
-        cs: "Upravit",
-        en: "Update"
-      }
-  },
+
   notAuth: {
     welcome: {
       cs: "Vítejte v šabloně pro aplikace uuAppTemplate",

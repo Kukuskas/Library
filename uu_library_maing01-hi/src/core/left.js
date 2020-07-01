@@ -7,7 +7,6 @@ import "uu_plus4u5g01-app";
 
 import Config from "./config/config.js";
 import Lsi from "../config/lsi.js";
-// import {JokesConsumer} from "./jokes-provider.js";
 //@@viewOff:imports
 
 const STATICS = {
@@ -51,18 +50,17 @@ export const Left = createVisualComponent({
           // NOTE Item "id" equals to useCase so that item gets automatically selected when route changes (see spa-autheticated.js).
           items={[{ id: "home", href: "home", content: <UU5.Bricks.Lsi lsi={Lsi.left.home} /> }]}
         />
-        <Plus4U5.App.MenuTree
-                      borderBottom
-                      // NOTE Item "id" equals to useCase so that item gets automatically selected when route changes (see spa-autheticated.js).
-                      items={[{ id: "library", href: "library", content: <UU5.Bricks.Lsi lsi={Lsi.left.library} /> },
-                      { id: "location", href: "location", content: <UU5.Bricks.Lsi lsi={Lsi.left.location} /> }
-                    ]}
-
-                    />
+                <Plus4U5.App.MenuTree
+          borderBottom
+          // NOTE Item "id" equals to useCase so that item gets automatically selected when route changes (see spa-autheticated.js).
+          items={[{ id: "books", href: "books", content: <UU5.Bricks.Lsi lsi={Lsi.left.books} /> }]}
+        />
+                <Plus4U5.App.MenuTree
+          borderBottom
+          // NOTE Item "id" equals to useCase so that item gets automatically selected when route changes (see spa-autheticated.js).
+          items={[{ id: "location", href: "location", content: <UU5.Bricks.Lsi lsi={Lsi.left.location} /> }]}
+        />
       </Plus4U5.App.Left>
-      
-      
-                  
     );
     //@@viewOff:render
   }

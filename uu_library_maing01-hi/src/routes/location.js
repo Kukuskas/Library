@@ -2,10 +2,10 @@
 import UU5 from "uu5g04";
 import { createVisualComponent, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
-// import BookList from "../bricks/book-list";
-import BookProvider from "../bricks/book-provider";
-// import BookCreate from "../bricks/book-create";
-// import BooksTitle from "../bricks/books-title";
+import LocationList from "../bricks/location-list";
+import LocationProvider from "../bricks/location-provider";
+import LocationCreate from "../bricks/location-create";
+import LocationsTitle from "../bricks/locations-title";
 //@@viewOff:imports
 
 const Location = createVisualComponent({
@@ -15,9 +15,9 @@ const Location = createVisualComponent({
 
   render() {
     //@@viewOn:hooks
-    const createBookRef = useRef();
-    const updateBookRef = useRef();
-    const deleteBookRef = useRef();
+    const createLocationRef = useRef();
+    const updateLocationRef = useRef();
+    const deleteLocationRef = useRef();
     //@viewOff:hooks
 
     //@@viewOn:private
@@ -30,27 +30,28 @@ const Location = createVisualComponent({
         });
     }
 
-    async function handleCreateBook(book) {
+    async function handleCreateLocation(location) {
       try {
-        await createBookRef.current(book);
+        await createLocationRef.current(location);
       } catch {
-        showError(`Creation of ${book.name} failed!`);
+        showError(`Creation of ${location.name} failed!`);
       }
     }
 
-    async function handleUpdateBook(book, values) {
+    /* eslint no-unused-vars: "off" */
+    async function handleUpdateLocation(location, values) {
       try {
-        await updateBookRef.current(book.id, values);
+        await updateLocationRef.current(location.id, values);
       } catch {
-        showError(`Update of ${book.name} failed!`);
+        showError(`Update of ${location.name} failed!`);
       }
     }
 
-    async function handleDeleteBook(book) {
+    async function handleDeleteLocation(location) {
       try {
-        await deleteBookRef.current(book);
+        await deleteLocationRef.current(location);
       } catch {
-        showError(`Deletion of ${book.name} failed!`);
+        showError(`Deletion of ${location.name} failed!`);
       }
     }
     //@@viewOff:private
@@ -60,21 +61,22 @@ const Location = createVisualComponent({
       return <UU5.Bricks.Loading />;
     }
 
-    function renderReady(books) {
-      console.log(books);
-        return (
+    function renderReady(locations) {
+      return (
         <>
-         {books}
+          <LocationsTitle locations={locations} />
+          <LocationCreate onCreate={handleCreateLocation} />
+          <LocationList locations={locations} onDelete={handleDeleteLocation} />
         </>
       );
     }
 
-    function renderError(books, errorState) {
+    function renderError(locations, errorState) {
       switch (errorState) {
         case "create":
         case "update":
         case "delete":
-          return renderReady(books);
+          return renderReady(locations);
         case "load":
         default:
           return <UU5.Bricks.Error content="Error happened!" />;
@@ -83,11 +85,11 @@ const Location = createVisualComponent({
 
     return (
       <UU5.Bricks.Container>
-        <BookProvider>
+        <LocationProvider>
           {({ viewState, asyncData, handleCreate, handleUpdate, handleDelete, errorState }) => {
-            createBookRef.current = handleCreate;
-            updateBookRef.current = handleUpdate;
-            deleteBookRef.current = handleDelete;
+            createLocationRef.current = handleCreate;
+            updateLocationRef.current = handleUpdate;
+            deleteLocationRef.current = handleDelete;
 
             switch (viewState) {
               case "load":
@@ -98,7 +100,7 @@ const Location = createVisualComponent({
                 return renderReady(asyncData);
             }
           }}
-        </BookProvider>
+        </LocationProvider>
       </UU5.Bricks.Container>
     );
     //@@viewOff:render

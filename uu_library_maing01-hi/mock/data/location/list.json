@@ -1,0 +1,51 @@
+{
+ "itemList": [
+  {
+    "name": "Ostrava",
+    "bookList": ["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"],
+    "capacity": 7,
+    "visibility": true,
+    "uuIdentity": "6-138-1",
+    "uuIdentityName": "Milan Martinek",
+    "awid": "4ef6a7b01b5942ecbfb925b249af987f",
+    "sys": { "cts": "2019-09-17T12:29:46.205Z", "mts": "2020-04-05T22:45:04.806Z", "rev": 43 },
+    "id": "5d80d1ba9e6aad000d2cdf21"
+  },
+  {
+    "name": "Prague",
+    "bookList": ["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"],
+    "capacity": 13,
+    "visibility": true,
+    "uuIdentity": "6-138-1",
+    "uuIdentityName": "Milan Martinek",
+    "awid": "4ef6a7b01b5942ecbfb925b249af987f",
+    "sys": { "cts": "2019-09-17T12:29:46.205Z", "mts": "2020-04-05T22:45:04.806Z", "rev": 43 },
+    "id": "5d80d1ba9e6aad000d2cdf12"
+  },
+  {
+    "name": "Brno",
+    "bookList": ["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"],
+    "capacity": 15,
+    "visibility": true,
+    "uuIdentity": "6-138-1",
+    "uuIdentityName": "Milan Martinek",
+    "awid": "4ef6a7b01b5942ecbfb925b249af987f",
+    "sys": { "cts": "2019-09-17T12:29:46.205Z", "mts": "2020-04-05T22:45:04.806Z", "rev": 43 },
+    "id": "5d80d1ba9e6aad000d2cdf18"
+  },
+  {
+    "name": "Pilsen",
+    "bookList": ["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"],
+    "capacity": 10,
+    "visibility": true,
+    "uuIdentity": "6-138-1",
+    "uuIdentityName": "Milan Martinek",
+    "awid": "4ef6a7b01b5942ecbfb925b249af987f",
+    "sys": { "cts": "2019-09-17T12:29:46.205Z", "mts": "2020-04-05T22:45:04.806Z", "rev": 43 },
+    "id": "5d80d1ba9e6aad000d2cdf35"
+  }
+  
+ ],
+ "pageInfo": { "pageIndex": 0, "pageSize": 100, "total": 4 },
+ "uuAppErrorMap": {}
+}
