@@ -11,6 +11,7 @@ const locationUpdateDtoInType = shape({
 });
 
 const locationListDtoInType = shape({
+  name: string(255)
 });
 
 const locationGetByIDDtoInType = shape({

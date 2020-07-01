@@ -28,7 +28,7 @@
       },
       "location/list": {
         "realization": "api/controllers/LocationController.list",
-        "httpMethod": "GET",
+        "httpMethod": ["GET"],
         "type": "CMD"
       },
       "location/delete": {

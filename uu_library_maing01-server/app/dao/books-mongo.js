@@ -19,8 +19,12 @@ author && conditions.push({author:author});
     
     let filter = {
       awid,
-      $or: conditions
+      $and: conditions
     };
+    console.log("******************");
+    
+    console.log(filter);
+    
     return await super.find(filter);
   }
 

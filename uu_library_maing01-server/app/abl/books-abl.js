@@ -32,6 +32,21 @@ class BooksAbl {
   }
 
   async create(awid, dtoIn, session, authorizationResult) {
+
+    let id ='xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(32);
+    });
+    // id = "805747e0ec253fb296f8eec5e6b3fd6a"
+
+
+
+    dtoIn.id=id;
+console.log(dtoIn);
+console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+
+
     let validationResult = this.validator.validate("bookCreateDtoInType", dtoIn);
 
     let uuAppErrorMap = ValidationHelper.processValidationResult(
