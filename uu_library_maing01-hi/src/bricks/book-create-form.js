@@ -28,7 +28,7 @@ const BookCreateForm = createVisualComponent({
     //@@viewOn:render
     return (
       <UU5.Forms.Form onSave={onSave} onCancel={onCancel} labelColWidth="xs-12 m-1" inputColWidth="xs-12 m-11" >
-        <UU5.Forms.Text label="Title" name="name" />
+        <UU5.Forms.Text label="Title" name="title" />
         <UU5.Forms.Text label="Author" name="author" />
         <UU5.Forms.Text label="Location" name="location" />
         <UU5.Forms.Controls />

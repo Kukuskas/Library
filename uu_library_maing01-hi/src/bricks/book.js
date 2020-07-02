@@ -13,7 +13,7 @@ const Book = createVisualComponent({
   //@@viewOn:propTypes
   propTypes: {
     book: UU5.PropTypes.shape({
-      name: UU5.PropTypes.string.isRequired,
+      title: UU5.PropTypes.string.isRequired,
       author: UU5.PropTypes.string.isRequired,
       location: UU5.PropTypes.string.isRequired,
       averageRating: UU5.PropTypes.number.isRequired
@@ -40,31 +40,23 @@ const Book = createVisualComponent({
     function handleDelete() {
       onDelete(book);
     }
+
     //@@viewOff:private
 
     //@@viewOn:render
-    function renderHeader() {
-      return (
-        <>
-          {book.name}
-          <UU5.Bricks.Button onClick={handleDelete} colorSchema="red">
-            <UU5.Bricks.Icon icon="mdi-delete" />
-          </UU5.Bricks.Button>
-        </>
-      );
-    }
+
 
     if (!book) {
       return null;
     }
     let text = {style:"float:Left; width:33% "};
     return (
-      <UU5.Bricks.Card  colorSchema={colorSchema} colorSchema="blue">
+      <UU5.Bricks.Card   colorSchema={colorSchema} colorSchema="blue">
         <UU5.Bricks.Text colorSchema="black"className={text} style="
         float: left;
 
   width: 33%"
->{book.name}</UU5.Bricks.Text>
+>{book.title}</UU5.Bricks.Text>
         <UU5.Bricks.Text style="
         float: left;
 

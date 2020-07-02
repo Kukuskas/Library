@@ -1,7 +1,7 @@
 {
  "itemList": [
    {
-     "name": "!false",
+     "title": "!false",
      "location": "Prague",
      "author": "any",
      "ratingCount": 16,
@@ -13,7 +13,7 @@
      "id": "5d80d1ba9e6aad000d2cdf96"
    },
    {
-     "name": "ANOTHER BAD CAT JOKE",
+     "title": "ANOTHER BAD CAT JOKE",
 
      "location": "Prague",
      "author": "any",
@@ -28,7 +28,7 @@
      "id": "5cd92bd6323cc0000c3031c3"
    },
    {
-     "name": "Binary",
+     "title": "Binary",
      "text": "There are 10 types of people in this world. Those who understand binary and those who don’t.",
      "location": "Prague",
      "author": "any",
@@ -43,7 +43,7 @@
      "id": "5d10c496cdf4a0000c041019"
    },
    {
-     "name": "Computer knows..",
+     "title": "Computer knows..",
      "text": "Never let your computer know that you are in hurry..\nComputers can smell fear. They slow down if they know that you are running out of time.",
      "location": "Prague",
      "author": "any",
@@ -58,7 +58,7 @@
      "id": "5d4a95b40949c1000cef30ee"
    },
    {
-     "name": "Debugging",
+     "title": "Debugging",
      "text": "Debugging: Removing the needles from the haystack.",
      "location": "Prague",
      "author": "any",
@@ -73,7 +73,7 @@
      "id": "5d10c4e0cdf4a0000c04101b"
    },
    {
-     "name": "Debugging: ",
+     "title": "Debugging: ",
      "location": "Prague",
      "author": "any",
      "text": "Q: What did the grandma cat say to her grandson when she saw him slouching? A: You need to pay more attention to my pawsture.",
@@ -88,8 +88,8 @@
      "id": "5e53fad30154b30025a117de"
    },
    {
-     "name": "Domains",
-     "text": "Girls are like Internet Domain names, the ones I like are already taken.",
+     "title": "Domains",
+     "text": "Girls are like Internet Domain titles, the ones I like are already taken.",
      "location": "Prague",
      "author": "any",
      "categoryList": ["5c9237a0323cc0000c303028"],
@@ -103,7 +103,7 @@
      "id": "5cd92cb4323cc0000c3031c7"
    },
    {
-     "name": "Google",
+     "title": "Google",
      "text": "Where's the best place to hide a body?\nPage two of Google.",
      "location": "Prague",
      "author": "any",
@@ -118,7 +118,7 @@
      "id": "5cd92d1f323cc0000c3031d1"
    },
    {
-     "name": "Helpdesk Approach",
+     "title": "Helpdesk Approach",
      "text": "Problém s počítačem lze vyřešit dvěma způsoby:\n1) vyhodit počítač z okna\n2) vyhodit okna z počítače",
      "location": "Prague",
      "author": "any",
@@ -133,7 +133,7 @@
      "id": "5d5267ae0949c1000cef3de8"
    },
    {
-     "name": "IF / THEN",
+     "title": "IF / THEN",
      "text": "A programmer's wife asks him to pick up some groceries on his way home from work. He asks what she needs, and she says to pick up a gallon of milk, and if they have eggs, get a dozen.\n\nWhen he returns home, his wife asks why he brought home 12 gallons of milk, and he responded that they did indeed have eggs.",
      "location": "Prague",
      "author": "any",
@@ -148,7 +148,7 @@
      "id": "5d52690a0949c1000cef3e46"
    },
    {
-     "name": "POSTURE CAT",
+     "title": "POSTURE CAT",
      "text": "Q: What did the grandma cat say to her grandson when she saw him slouching?\n\nA: You need to pay more attention to my pawsture.",
      "location": "Prague",
      "author": "any",
@@ -163,7 +163,7 @@
      "id": "5cd92bc4323cc0000c3031c1"
    },
    {
-     "name": "Postman Jokes",
+     "title": "Postman Jokes",
      "text": "Náš pes pořád honil lidi na kole. Nakonec jsme mu to kolo museli vzít.",
      "categoryList": [],
      "location": "Prague",
@@ -178,7 +178,7 @@
      "id": "5d5294dc0949c1000cef3f49"
    },
    {
-     "name": "QA tester walks into a bar",
+     "title": "QA tester walks into a bar",
      "text": "A QA tester walks into a bar and orders a beer.\n\nThen he orders 0 beers.\nThen he orders 999999999999 beers.\nThen he orders a lizard.\nThen he orders -1 beers.\nThen he orders NULL beers.\nThen he orders asnwikfjsdf.",
      "location": "Prague",
      "author": "any",
@@ -193,7 +193,7 @@
      "id": "5d345cbd0949c1000cef1977"
    },
    {
-     "name": "Regular expression",
+     "title": "Regular expression",
      "text": "I had a programming problem and decided to use regular expressions to solve it.\nNow I have two problems.",
      "location": "Prague",
      "author": "any",
@@ -208,7 +208,7 @@
      "id": "5cd92d7c323cc0000c3031d5"
    },
    {
-     "name": "SOUNDS GREAT, NO?",
+     "title": "SOUNDS GREAT, NO?",
      "text": "Q: Where do cats go when they die?\nA: Purrgatory.",
      "location": "Prague",
      "author": "any",
@@ -223,7 +223,7 @@
      "id": "5d139100540d24000cac2a40"
    },
    {
-     "name": "Users",
+     "title": "Users",
      "text": "A system administrator has 2 problems:\n- dumb users\n- smart users",
      "location": "Prague",
      "author": "any",
@@ -238,7 +238,7 @@
      "id": "5cd92d57323cc0000c3031d3"
    },
    {
-     "name": "ŘÍMANI",
+     "title": "ŘÍMANI",
      "text": "Jak se směje 490 římských legionářů? XD",
      "location": "Prague",
      "author": "any",

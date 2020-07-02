@@ -14,7 +14,7 @@ const Book = createVisualComponent({
   //@@viewOn:propTypes
   propTypes: {
     book: UU5.PropTypes.shape({
-      name: UU5.PropTypes.string.isRequired,
+      title: UU5.PropTypes.string.isRequired,
       text: UU5.PropTypes.string,
       averageRating: UU5.PropTypes.number.isRequired
     }),

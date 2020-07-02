@@ -6,7 +6,7 @@ import Plus4U5 from "uu_plus4u5g01";
 
 let Calls = {
   /** URL containing app base, e.g. "https://uuos9.plus4u.net/vnd-app/awid/". */
-  APP_BASE_URI: "https://uuapp.plus4u.net/uu-library-maing01/4ef6a7b01b5942ecbfb925b249af987f/",
+  APP_BASE_URI: "http://localhost:8080/uu-library-maing01/22222222222222222222222222222222/",
 
   async call(method, url, dtoIn, clientOptions) {
     const response = await Plus4U5.Common.Calls.call(method, url, dtoIn, clientOptions);
