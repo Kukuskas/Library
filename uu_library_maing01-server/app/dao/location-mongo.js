@@ -20,12 +20,7 @@ class LocationMongo extends UuObjectDao {
   }
 
   async list(awid, name) {
-    console.log("+++++++++++++++++++++");
 
-    console.log(awid);
-    console.log(name);
-    // name = "Brno"
-    console.log("+++++++++++++++++++");
     let conditions = [];
     name && conditions.push({ name: name });
     !name && conditions.push({});
@@ -34,9 +29,6 @@ class LocationMongo extends UuObjectDao {
       awid,
       $or: conditions
     };
-    console.log("******************");
-
-    console.log(filter);
     return await super.find(filter);
   }
 

@@ -5,7 +5,7 @@ import Config from "./config/config";
 import BookList from "../bricks/book-list";
 import BookProvider from "../bricks/book-provider";
 import BookCreate from "../bricks/book-create";
-import BooksTitle from "../bricks/books-title";
+import BooksFilter from "../bricks/books-filter";
 //@@viewOff:imports
 
 const Books = createVisualComponent({
@@ -64,9 +64,11 @@ const Books = createVisualComponent({
     function renderReady(books) {
       return (
         <>
-          <BooksTitle books={books} />
-          <BookCreate onCreate={handleCreateBook} />
-          <BookList books={books} onDelete={handleDeleteBook} />
+          <BookCreate onCreate={handleCreateBook} style="float: left" />
+          <BooksFilter />
+          <br />
+          <br />
+          <BookList books={books} onDelete={handleDeleteBook} onUpdate={handleUpdateBook} />
         </>
       );
     }
