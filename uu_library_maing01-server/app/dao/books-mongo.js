@@ -10,26 +10,23 @@ class BooksMongo extends UuObjectDao {
   async create(book) {
     // book.id= GetId();
     // console.log("OOOOOOOOOOO");
-    
+
     console.log(book);
     console.log("OOOOOOOOOOO");
     return await super.insertOne(book);
   }
 
   async list(awid, title, author) {
-    let conditions= [];
-title && conditions.push({ title:title });
-author && conditions.push({author:author});
-!title && !author && conditions.push({});
-    
+    let conditions = [];
+    title && conditions.push({ title: title });
+    author && conditions.push({ author: author });
+    !title && !author && conditions.push({});
+
     let filter = {
       awid,
       $and: conditions
     };
-    console.log("******************");
-    
-    console.log(filter);
-    
+
     return await super.find(filter);
   }
 

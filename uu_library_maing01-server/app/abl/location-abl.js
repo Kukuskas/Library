@@ -30,6 +30,14 @@ class LocationAbl {
   }
 
   async create(awid, dtoIn, session, authorizationResult) {
+    let id = "xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+      var r = (Math.random() * 16) | 0,
+        v = c == "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(32);
+    });
+    // id = "805747e0ec253fb296f8eec5e6b3fd6a"
+
+    dtoIn.id = id;
     let validationResult = this.validator.validate("locationCreateDtoInType", dtoIn);
     let uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
@@ -106,43 +114,16 @@ class LocationAbl {
   }
 
   async list(awid, dtoIn) {
-    console.log("55555555555555555555555");
-    console.log(dtoIn);
-    console.log("55555555555555555555555");
-
-    console.log("1 -----------------");
-    console.log(dtoIn);
-
     let validationResult = this.validator.validate("locationListDtoInType", dtoIn);
-    console.log("2 -----------------");
-    console.log(dtoIn);
-
     let uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
       WARNINGS.listUnsupportedKeys.code,
       Errors.List.InvalidDtoIn
     );
-    console.log("3 -----------------");
-    console.log(dtoIn);
-
-    
-
     let dtoOut;
-
-    console.log("-----------------");
-    console.log(dtoIn);
     dtoIn.awid = awid;
-    console.log(dtoIn);
-    console.log(dtoIn.awid);
-    console.log(dtoIn.name);
-    console.log("-----------------");
-
     try {
-      console.log("666666666666666666666666");
-      console.log(dtoIn.name);
-      console.log(dtoIn);
-      console.log("66666666666666666666666666");
       dtoOut = await this.dao.list(awid, dtoIn.name);
     } catch (e) {
       if (e instanceof ObjectStoreError) {

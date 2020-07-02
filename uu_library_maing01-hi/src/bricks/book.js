@@ -66,7 +66,7 @@ const Book = createVisualComponent({
         <UU5.Bricks.Text colorSchema="black" style="
         float: left;
 
-  width: 33%"
+  width: 40%"
 >{book.title}</UU5.Bricks.Text>
         <UU5.Bricks.Text style="
         float: left;
@@ -75,7 +75,7 @@ const Book = createVisualComponent({
         <UU5.Bricks.Text style="
         float: left;
 
-  width: 22%">{book.location}</UU5.Bricks.Text>
+  width: 20.5%">{book.location}</UU5.Bricks.Text>
   <UU5.Bricks.Button onClick={handleDelete} colorSchema="red" style="
         float: left;
 
