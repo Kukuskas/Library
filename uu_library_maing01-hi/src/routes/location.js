@@ -5,7 +5,7 @@ import Config from "./config/config";
 import LocationList from "../bricks/location-list";
 import LocationProvider from "../bricks/location-provider";
 import LocationCreate from "../bricks/location-create";
-import LocationsTitle from "../bricks/locations-title";
+import LocationsFilter from "../bricks/locations-filter";
 //@@viewOff:imports
 
 const Location = createVisualComponent({
@@ -64,9 +64,11 @@ const Location = createVisualComponent({
     function renderReady(locations) {
       return (
         <>
-          <LocationsTitle locations={locations} />
           <LocationCreate onCreate={handleCreateLocation} />
-          <LocationList locations={locations} onDelete={handleDeleteLocation} />
+          <LocationsFilter />
+          <br />
+          <br />
+          <LocationList locations={locations} onDelete={handleDeleteLocation} onUpdate={handleUpdateLocation}/>
         </>
       );
     }
