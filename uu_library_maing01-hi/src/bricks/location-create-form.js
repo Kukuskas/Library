@@ -29,7 +29,7 @@ const LocationCreateForm = createVisualComponent({
     return (
       <UU5.Forms.Form onSave={onSave} onCancel={onCancel} labelColWidth="xs-12 m-1" inputColWidth="xs-12 m-11" >
         <UU5.Forms.Text label="Name" name="name" />
-        <UU5.Forms.Text label="Capacity" name="capacity" />
+        <UU5.Forms.Number label="Capacity" name="capacity" />
         <UU5.Forms.Controls />
       </UU5.Forms.Form>
     );

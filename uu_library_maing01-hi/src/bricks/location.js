@@ -15,7 +15,7 @@ const Location = createVisualComponent({
     location: UU5.PropTypes.shape({
       id: UU5.PropTypes.string.isRequired,
       name: UU5.PropTypes.string.isRequired,
-      capacity: UU5.PropTypes.string.isRequired,
+      capacity: UU5.PropTypes.number.isRequired,
 
     }),
     colorSchema: UU5.PropTypes.string,
@@ -60,7 +60,7 @@ const Location = createVisualComponent({
     let text = {style:"float:Left; width:33% "};
     return (
       <UU5.Bricks.Card  colorSchema={colorSchema} colorSchema="blue">
-        <UU5.Bricks.Text colorSchema="black"className={text} style="
+        <UU5.Bricks.Text colorSchema="black" style="
         float: left;
 
   width: 33%"
