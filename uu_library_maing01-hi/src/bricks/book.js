@@ -2,7 +2,7 @@
 import UU5 from "uu5g04";
 import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
-import BookUpdate from "./book-update"
+import BookUpdate from "./book-update";
 import Left from "../core/left";
 //@@viewOff:imports
 
@@ -16,7 +16,7 @@ const Book = createVisualComponent({
     book: UU5.PropTypes.shape({
       title: UU5.PropTypes.string.isRequired,
       author: UU5.PropTypes.string.isRequired,
-      location: UU5.PropTypes.string.isRequired,
+      location: UU5.PropTypes.string.isRequired
     }),
     colorSchema: UU5.PropTypes.string,
     onDetail: UU5.PropTypes.func,
@@ -40,8 +40,8 @@ const Book = createVisualComponent({
     function handleDelete() {
       onDelete(book);
     }
-    function handleUpdate() {
-      onUpdate(book);
+    function handleUpdate(values) {
+      onUpdate(book, values);
     }
     function showError(content) {
       UU5.Environment.getPage()
@@ -52,37 +52,57 @@ const Book = createVisualComponent({
         });
     }
     //@@viewOff:private
-    
-    
-    //@@viewOn:render
 
+    //@@viewOn:render
 
     if (!book) {
       return null;
     }
-    
+
     return (
-      <UU5.Bricks.Card   colorSchema={colorSchema} colorSchema="blue">
-        <UU5.Bricks.Text colorSchema="black" style="
-        float: left;
+      <UU5.Bricks.Card
+        colorSchema={colorSchema}
+        colorSchema="blue"
+        style="
+          width:100%; 
+          height:auto; 
+          background-color: #E3F2FD; 
+          direction: ltr;
+          display: inline-block;"
+      >
+        <UU5.Bricks.Text
+          colorSchema="black"
+          style="
+            float: left;
+            height:auto;
+            width: 40%"
+        >
+          {book.title}
+        </UU5.Bricks.Text>
+        <UU5.Bricks.Text
+          style="
+            float: left;
+            width: 30%"
+        >
+          {book.author}
+        </UU5.Bricks.Text>
+        <UU5.Bricks.Text
+          style="
+            float: left;
+            width: 15%"
+        >
+          {book.location}
+        </UU5.Bricks.Text>
+        <UU5.Bricks.Button
+          onClick={handleDelete}
+          colorSchema="red"
+          style="
+            float: right;"
+        >
+          <UU5.Bricks.Icon icon="mdi-delete" />
+        </UU5.Bricks.Button>
 
-  width: 40%"
->{book.title}</UU5.Bricks.Text>
-        <UU5.Bricks.Text style="
-        float: left;
-
-  width: 33%">{book.author}</UU5.Bricks.Text>
-        <UU5.Bricks.Text style="
-        float: left;
-
-  width: 20.5%">{book.location}</UU5.Bricks.Text>
-  <UU5.Bricks.Button onClick={handleDelete} colorSchema="red" style="
-        float: left;
-
-  "><UU5.Bricks.Icon icon="mdi-delete" /></UU5.Bricks.Button>
-
-  <BookUpdate onUpdate={handleUpdate} />
-        <UU5.Bricks.Rating  colorSchema="red" style="overflow:hidden; width : 0; height: 30px"/>
+        <BookUpdate book={book} onUpdate={handleUpdate} />
       </UU5.Bricks.Card>
     );
     //@@viewOff:render

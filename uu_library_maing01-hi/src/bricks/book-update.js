@@ -32,7 +32,7 @@ const BookUpdate = createComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ onUpdate }) {
+  render({ book, onUpdate }) {
     //@viewOn:hooks
     const [mode, setMode] = useState(Mode.BUTTON);
     //@viewOff:hooks
@@ -55,13 +55,13 @@ const BookUpdate = createComponent({
     //@@viewOn:render
     function renderButton() {
       return     (<UU5.Bricks.Button onClick={handleAddClick} colorSchema="yellow" style="
-      float: left;
+      float: right;
 
 "><UU5.Bricks.Icon icon="mdi-pencil" /></UU5.Bricks.Button>);
     }
 
     function renderForm() {      
-      return <BookUpdateForm onSave={handleSave} onCancel={handleCancel} />;
+      return <BookUpdateForm onSave={handleSave} book={book} onCancel={handleCancel} />;
     }
 
     switch (mode) {

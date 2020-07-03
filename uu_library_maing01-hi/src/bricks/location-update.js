@@ -57,7 +57,7 @@ const LocationUpdate = createComponent({
         <UU5.Bricks.Button
           onClick={handleAddClick}
           colorSchema="yellow"
-          style="float: left;"
+          style="float: right;"
         >
           <UU5.Bricks.Icon icon="mdi-pencil" />
         </UU5.Bricks.Button>

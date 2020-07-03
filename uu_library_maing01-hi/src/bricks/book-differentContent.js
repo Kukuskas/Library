@@ -41,8 +41,8 @@ const Book = createVisualComponent({
       onDetail(book);
     }
 
-    function handleUpdate() {
-      onUpdate(book);
+    function handleUpdate(values) {
+      onUpdate(book, values);
     }
 
     function handleDelete() {

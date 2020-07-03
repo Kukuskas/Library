@@ -63,13 +63,13 @@ const Books = createVisualComponent({
 
     function renderReady(books) {
       return (
-        <>
+        <div >
           <BookCreate onCreate={handleCreateBook} style="float: left" />
           <BooksFilter />
           <br />
           <br />
-          <BookList books={books} onDelete={handleDeleteBook} onUpdate={handleUpdateBook} />
-        </>
+          <BookList books={books} onDelete={handleDeleteBook} onUpdate={handleUpdateBook}/>
+        </div>
       );
     }
 

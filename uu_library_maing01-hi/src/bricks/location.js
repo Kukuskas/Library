@@ -62,20 +62,19 @@ const Location = createVisualComponent({
     }
     let text = { style: "float:Left; width:33% " };
     return (
-      <UU5.Bricks.Card colorSchema={colorSchema} colorSchema="blue">
+      <UU5.Bricks.Card colorSchema={colorSchema} colorSchema="blue" style="
+      width:100%; height:auto; background-color: #E3F2FD; direction: ltr;display: inline-block;">
         <UU5.Bricks.Text
           style="
-        float: left;
-
-  width: 53%"
+            float: left;
+            width: 53%"
         >
           {location.name}
         </UU5.Bricks.Text>
         <UU5.Bricks.Text
           style="
-        float: left;
-
-  width: 40.5%"
+            float: left;
+            width: 20%"
         >
           {location.capacity}
         </UU5.Bricks.Text>
@@ -83,14 +82,11 @@ const Location = createVisualComponent({
           onClick={handleDelete}
           colorSchema="red"
           style="
-        float: left;
-
-  "
+            float: right;"
         >
           <UU5.Bricks.Icon icon="mdi-delete" />
         </UU5.Bricks.Button>
         <LocationUpdate onUpdate={handleUpdate} />
-        <UU5.Bricks.Rating colorSchema="red" style="overflow:hidden; width : 0; height: 30px" />
       </UU5.Bricks.Card>
     );
     //@@viewOff:render

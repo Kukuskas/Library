@@ -30,7 +30,7 @@ const BookUpdateForm = createVisualComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ book, onSave, onCancel, id }) {
+  render({ book, onSave, onCancel}) {
     //@@viewOn:render
 console.log(!book?"!!!!!!!!!!book is null and title doesn't exist":book.title);
 
@@ -38,10 +38,10 @@ console.log(!book?"!!!!!!!!!!book is null and title doesn't exist":book.title);
       <UU5.Forms.Form onSave={onSave} onCancel={onCancel} labelColWidth="xs-12 m-1" inputColWidth="xs-12 m-11" >
         <br></br>
         
-        <UU5.Forms.Text label="Title" name="title" value="" />
+        <UU5.Forms.Text label="Title" name="title" value={book.title} />
 
-        <UU5.Forms.Text label="Author" name="author" value="hello"/>
-        <UU5.Forms.Text label="Location" name="location" />
+        <UU5.Forms.Text label="Author" name="author" value={book.author}/>
+        <UU5.Forms.Text label="Location" name="location" value={book.location}/>
         <UU5.Forms.Controls />
       </UU5.Forms.Form>
     );
