@@ -9,6 +9,9 @@ class LocationController {
   update(ucEnv) {
     return LocationAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
+  addBookToLocation(ucEnv) {
+    return LocationAbl.getByID(ucEnv.getUri().getAwid(), ucEnv.getDtoIn()).update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
+  }
   getByID(ucEnv){
     return LocationAbl.getByID(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }

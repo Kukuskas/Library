@@ -4,7 +4,7 @@ const { DaoFactory, ObjectStoreError } = require("uu_appg01_server").ObjectStore
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const { SysProfileModel } = require("uu_appg01_server").Workspace;
 const Errors = require("../api/errors/books-error");
-let LocationMongo =require("../dao/location-mongo")
+const { LocationAbl } = require("./location-abl");
 
 const WARNINGS = {
   createUnsupportedKeys: {
@@ -70,8 +70,13 @@ class BooksAbl {
     // LocationAbl[0].filled +=1
     let bookID = dtoIn.id
     let locationID = dtoIn.location
+      console.log(dtoIn);
+    console.log("--------------------------------------------");
     
-    this.addBookToLocation(awid, bookID, locationID, session, authorizationResult)
+    
+    // let locationIn = {}
+    // locationIn.id= locationID
+    // LocationAbl.addBookToLocation(awid, locationIn, bookID, session, authorizationResult)
 
     let dtoOut;
     try {

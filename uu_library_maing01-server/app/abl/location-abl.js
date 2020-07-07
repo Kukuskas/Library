@@ -74,7 +74,8 @@ dtoIn.books=[]
       Errors.Update.InvalidDtoIn
     );
     dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
-
+      console.log(dtoIn);
+      
     dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
     dtoIn.uuIdentityName = session.getIdentity().getName();
     let dtoOut;
@@ -91,7 +92,7 @@ dtoIn.books=[]
     return dtoOut;
   }
 
-  async addBook(awid, dtoIn, session, authorizationResult) {
+  async addBookToLocation(awid, dtoIn, bookID, session, authorizationResult) {
     let validationResult = this.validator.validate("locationUpdateDtoInType", dtoIn);
     let uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
@@ -104,7 +105,7 @@ dtoIn.books=[]
     dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
     dtoIn.uuIdentityName = session.getIdentity().getName();
     let dtoOut;
-    dtoIn.push(bookID)
+    dtoIn.books.push(bookID)
     dtoIn.filled +=1
     dtoIn.awid = awid;
     try {
