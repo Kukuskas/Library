@@ -32,7 +32,20 @@ const BookUpdateForm = createVisualComponent({
 
   render({ book, onSave, onCancel}) {
     //@@viewOn:render
-console.log(!book?"!!!!!!!!!!book is null and title doesn't exist":book.title);
+    switch (book.location) {
+      case "Storage":  book.location= "49bff38c47124dcc83c20f61ae1c5d9b";
+        break;
+      case "Prague":  book.location= "67a196d9e4ea4163abb54d3cb14c52b1";
+        break;
+      case "Pilsen":  book.location= "da6a61856bb44e13bbfb33d6a0d407ac";
+        break;
+      case "Brno":  book.location= "19a22f8ee9aa418a848dab15e396cfe7";
+        break;
+      case "Hradec Kralove":  book.location= "6332baf54a004da289e1ba9c793c2c78";
+        break;
+      default:
+        break;
+    }
 
     return (
       <UU5.Forms.Form onSave={onSave} onCancel={onCancel} labelColWidth="xs-12 m-1" inputColWidth="xs-12 m-11" >
@@ -41,7 +54,13 @@ console.log(!book?"!!!!!!!!!!book is null and title doesn't exist":book.title);
         <UU5.Forms.Text label="Title" name="title" value={book.title} />
 
         <UU5.Forms.Text label="Author" name="author" value={book.author}/>
-        <UU5.Forms.Text label="Location" name="location" value={book.location}/>
+        <UU5.Forms.Select label="Location" name="location" value={book.location}>
+          <UU5.Forms.Select.Option value="49bff38c47124dcc83c20f61ae1c5d9b">Storage</UU5.Forms.Select.Option>
+          <UU5.Forms.Select.Option value="67a196d9e4ea4163abb54d3cb14c52b1">Prague</UU5.Forms.Select.Option>
+          <UU5.Forms.Select.Option value="da6a61856bb44e13bbfb33d6a0d407ac">Pilsen</UU5.Forms.Select.Option>
+          <UU5.Forms.Select.Option value="19a22f8ee9aa418a848dab15e396cfe7">Brno</UU5.Forms.Select.Option>
+          <UU5.Forms.Select.Option value="6332baf54a004da289e1ba9c793c2c78">Hradec Kralove</UU5.Forms.Select.Option>
+        </UU5.Forms.Select>
         <UU5.Forms.Controls />
       </UU5.Forms.Form>
     );

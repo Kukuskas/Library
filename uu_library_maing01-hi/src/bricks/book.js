@@ -58,7 +58,21 @@ const Book = createVisualComponent({
     if (!book) {
       return null;
     }
-
+    //switching books location id to name (just helper for presentation)
+switch (book.location) {
+  case "49bff38c47124dcc83c20f61ae1c5d9b":  book.location= "Storage";
+    break;
+  case "67a196d9e4ea4163abb54d3cb14c52b1":  book.location= "Prague";
+    break;
+  case "da6a61856bb44e13bbfb33d6a0d407ac":  book.location= "Pilsen";
+    break;
+  case "19a22f8ee9aa418a848dab15e396cfe7":  book.location= "Brno";
+    break;
+  case "6332baf54a004da289e1ba9c793c2c78":  book.location= "Hradec Kralove";
+    break;
+  default:
+    break;
+}
     return (
       <UU5.Bricks.Card
         colorSchema={colorSchema}

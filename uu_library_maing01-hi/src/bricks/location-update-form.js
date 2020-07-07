@@ -29,17 +29,16 @@ const LocationUpdateForm = createVisualComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ location, onSave, onCancel, id }) {
+  render({ location, onSave, onCancel}) {
     //@@viewOn:render
-    console.log(!location ? "!!!!!!!!!!location is null and title doesn't exist" : location.title);
 
     return (
       <UU5.Forms.Form onSave={onSave} onCancel={onCancel} labelColWidth="xs-12 m-1" inputColWidth="xs-12 m-11">
         <br></br>
 
-        <UU5.Forms.Text label="Name" name="name" value="" />
+        <UU5.Forms.Text label="Name" name="name" value={location.name} />
 
-        <UU5.Forms.Number label="Capacity" name="capacity" />
+        <UU5.Forms.Number label="Capacity" name="capacity" value={location.capacity} />
 
         <UU5.Forms.Controls />
       </UU5.Forms.Form>

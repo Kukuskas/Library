@@ -10,6 +10,13 @@ const locationUpdateDtoInType = shape({
   capacity: integer(10000000).isRequired()
 });
 
+const locationAddBookToLocationDtoInType = shape({
+  id: id().isRequired(),
+  name: string(255).isRequired(),
+  capacity: integer(10000000).isRequired(),
+  filled: integer(10000000).isRequired()
+});
+
 const locationListDtoInType = shape({
   name: string(255),
   capacity: integer(10000000)

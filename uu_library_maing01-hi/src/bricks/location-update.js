@@ -31,7 +31,7 @@ const LocationUpdate = createComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ onUpdate }) {
+  render({ onUpdate, location }) {
     //@viewOn:hooks
     const [mode, setMode] = useState(Mode.BUTTON);
     //@viewOff:hooks
@@ -65,7 +65,7 @@ const LocationUpdate = createComponent({
     }
 
     function renderForm() {
-      return <LocationUpdateForm onSave={handleSave} onCancel={handleCancel} />;
+      return <LocationUpdateForm location={location} onSave={handleSave} onCancel={handleCancel} />;
     }
 
     switch (mode) {

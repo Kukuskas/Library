@@ -8,11 +8,6 @@ class BooksMongo extends UuObjectDao {
   }
 
   async create(book) {
-    // book.id= GetId();
-    // console.log("OOOOOOOOOOO");
-
-    console.log(book);
-    console.log("OOOOOOOOOOO");
     return await super.insertOne(book);
   }
 
@@ -35,13 +30,17 @@ class BooksMongo extends UuObjectDao {
   }
 
   async update(awid, book) {
-    console.log(awid, book);
-
     return await super.findOneAndUpdate({ awid, id: book.id }, book, "NONE");
+  }
+
+  async addBookToLocation(awid, book, location) {
+    return await super.findOneAndUpdate({ awid, id: book.location }, location, "NONE");
+    // změnit name na id!!!!!
   }
 
   async delete(awid, book) {
     let deletedBook = await super.findOne({ awid, id: book.id });
+    // sem přidat funkci na odstraňování knihy z lokace ve které se kniha nachází !!!!!
     await super.deleteOne({ awid, id: book.id });
     return deletedBook;
   }

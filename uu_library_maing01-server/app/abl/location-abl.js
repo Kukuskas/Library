@@ -36,7 +36,6 @@ class LocationAbl {
       return v.toString(32);
     });
     // id = "805747e0ec253fb296f8eec5e6b3fd6a"
-
     dtoIn.id = id;
     let validationResult = this.validator.validate("locationCreateDtoInType", dtoIn);
     let uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -50,7 +49,8 @@ class LocationAbl {
 
     dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
     dtoIn.uuIdentityName = session.getIdentity().getName();
-
+dtoIn.filled=0
+dtoIn.books=[]
     let dtoOut;
     dtoIn.awid = awid;
     try {
@@ -90,6 +90,35 @@ class LocationAbl {
     dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
   }
+
+  async addBook(awid, dtoIn, session, authorizationResult) {
+    let validationResult = this.validator.validate("locationUpdateDtoInType", dtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.updateUnsupportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+
+    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    dtoIn.uuIdentityName = session.getIdentity().getName();
+    let dtoOut;
+    dtoIn.push(bookID)
+    dtoIn.filled +=1
+    dtoIn.awid = awid;
+    try {
+      dtoOut = await this.dao.update(awid, dtoIn);
+    } catch (e) {
+      if (e instanceof ObjectStoreError) {
+        // A3
+        throw new Errors.Update.LocationDaoUpdateFailed({ uuAppErrorMap }, e);
+      }
+    }
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  };
+
 
   async getByID(awid, dtoIn) {
     let validationResult = this.validator.validate("locationGetByIDDtoInType", dtoIn);

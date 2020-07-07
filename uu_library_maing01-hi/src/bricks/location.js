@@ -40,8 +40,8 @@ const Location = createVisualComponent({
     function handleDelete() {
       onDelete(location);
     }
-    function handleUpdate() {
-      onUpdate(location);
+    function handleUpdate(values) {
+      onUpdate(values, location);
     }
     //@@viewOff:private
 
@@ -63,7 +63,7 @@ const Location = createVisualComponent({
     let text = { style: "float:Left; width:33% " };
     return (
       <UU5.Bricks.Card colorSchema={colorSchema} colorSchema="blue" style="
-      width:100%; height:auto; background-color: #E3F2FD; direction: ltr;display: inline-block;">
+      width:100%; height:auto; background-color: #E3F2FD; direction: ltr; display: inline-block;">
         <UU5.Bricks.Text
           style="
             float: left;
@@ -76,7 +76,7 @@ const Location = createVisualComponent({
             float: left;
             width: 20%"
         >
-          {location.capacity}
+          {location.filled}/{location.capacity}
         </UU5.Bricks.Text>
         <UU5.Bricks.Button
           onClick={handleDelete}
@@ -86,7 +86,7 @@ const Location = createVisualComponent({
         >
           <UU5.Bricks.Icon icon="mdi-delete" />
         </UU5.Bricks.Button>
-        <LocationUpdate onUpdate={handleUpdate} />
+        <LocationUpdate location={location} onUpdate={handleUpdate} />
       </UU5.Bricks.Card>
     );
     //@@viewOff:render

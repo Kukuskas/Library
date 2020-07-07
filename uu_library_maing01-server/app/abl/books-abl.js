@@ -4,6 +4,7 @@ const { DaoFactory, ObjectStoreError } = require("uu_appg01_server").ObjectStore
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const { SysProfileModel } = require("uu_appg01_server").Workspace;
 const Errors = require("../api/errors/books-error");
+let LocationMongo =require("../dao/location-mongo")
 
 const WARNINGS = {
   createUnsupportedKeys: {
@@ -54,6 +55,24 @@ class BooksAbl {
     dtoIn.uuIdentityName = session.getIdentity().getName();
 
     dtoIn.awid = awid;
+    // const locationId = dtoIn.location
+    // for (let i = 0; i < LocationAbl.length; i++) {
+    //   const loc = LocationAbl[i];
+    //   if (loc.id=locationId) {
+    //     console.log(loc.id);
+    //     console.log(locationId);
+    //     loc.books.push(dtoIn.id)
+        
+    //   }
+      
+    // }
+    // LocationAbL[0].books.push(dtoIn.id)
+    // LocationAbl[0].filled +=1
+    let bookID = dtoIn.id
+    let locationID = dtoIn.location
+    
+    this.addBookToLocation(awid, bookID, locationID, session, authorizationResult)
+
     let dtoOut;
     try {
       dtoOut = await this.dao.create(dtoIn);
@@ -91,6 +110,48 @@ class BooksAbl {
     dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
   }
+  async addBookToLocation(awid, bookID, locationID, session, authorizationResult, book, location) {
+    this.dao = DaoFactory.getDao("location");
+
+    console.log(awid);
+    console.log(bookID);
+    console.log(locationID);
+    
+    
+    console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+  
+    
+    
+    
+    
+    
+    
+    // let validationResult = this.validator.validate("locationUpdateDtoInType", dtoIn);
+    // let uuAppErrorMap = ValidationHelper.processValidationResult(
+    //   dtoIn,
+    //   validationResult,
+    //   WARNINGS.updateUnsupportedKeys.code,
+    //   Errors.Update.InvalidDtoIn
+    // );
+    // dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+
+    // dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    // dtoIn.uuIdentityName = session.getIdentity().getName();
+    // let dtoOut;
+    // dtoIn.push(bookID)
+    // dtoIn.filled +=1
+    // dtoIn.awid = awid;
+    // try {
+    //   dtoOut = await this.dao.update(awid, dtoIn);
+    // } catch (e) {
+    //   if (e instanceof ObjectStoreError) {
+    //     // A3
+    //     throw new Errors.Update.LocationDaoUpdateFailed({ uuAppErrorMap }, e);
+    //   }
+    // }
+    // dtoOut.uuAppErrorMap = uuAppErrorMap;
+    // return dtoOut;
+  };
 
   async update(awid, dtoIn, session, authorizationResult) {
     let validationResult = this.validator.validate("bookUpdateDtoInType", dtoIn);
