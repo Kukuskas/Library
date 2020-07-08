@@ -30,13 +30,6 @@ class LocationAbl {
   }
 
   async create(awid, dtoIn, session, authorizationResult) {
-    let id = "xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx".replace(/[xy]/g, function(c) {
-      var r = (Math.random() * 16) | 0,
-        v = c == "x" ? r : (r & 0x3) | 0x8;
-      return v.toString(32);
-    });
-    // id = "805747e0ec253fb296f8eec5e6b3fd6a"
-    dtoIn.id = id;
     let validationResult = this.validator.validate("locationCreateDtoInType", dtoIn);
     let uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
@@ -49,8 +42,7 @@ class LocationAbl {
 
     dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
     dtoIn.uuIdentityName = session.getIdentity().getName();
-dtoIn.filled=0
-dtoIn.books=[]
+    dtoIn.filled=0
     let dtoOut;
     dtoIn.awid = awid;
     try {
@@ -74,7 +66,7 @@ dtoIn.books=[]
       Errors.Update.InvalidDtoIn
     );
     dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
-      console.log(dtoIn);
+
       
     dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
     dtoIn.uuIdentityName = session.getIdentity().getName();
@@ -91,35 +83,6 @@ dtoIn.books=[]
     dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
   }
-
-  async addBookToLocation(awid, dtoIn, bookID, session, authorizationResult) {
-    let validationResult = this.validator.validate("locationUpdateDtoInType", dtoIn);
-    let uuAppErrorMap = ValidationHelper.processValidationResult(
-      dtoIn,
-      validationResult,
-      WARNINGS.updateUnsupportedKeys.code,
-      Errors.Update.InvalidDtoIn
-    );
-    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
-
-    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
-    dtoIn.uuIdentityName = session.getIdentity().getName();
-    let dtoOut;
-    dtoIn.books.push(bookID)
-    dtoIn.filled +=1
-    dtoIn.awid = awid;
-    try {
-      dtoOut = await this.dao.update(awid, dtoIn);
-    } catch (e) {
-      if (e instanceof ObjectStoreError) {
-        // A3
-        throw new Errors.Update.LocationDaoUpdateFailed({ uuAppErrorMap }, e);
-      }
-    }
-    dtoOut.uuAppErrorMap = uuAppErrorMap;
-    return dtoOut;
-  };
-
 
   async getByID(awid, dtoIn) {
     let validationResult = this.validator.validate("locationGetByIDDtoInType", dtoIn);

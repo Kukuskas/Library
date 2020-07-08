@@ -11,9 +11,9 @@ const LocationUpdateForm = createVisualComponent({
   //@@viewOff:statics
   propTypes: {
     location: UU5.PropTypes.shape({
-      title: UU5.PropTypes.string.isRequired,
-      author: UU5.PropTypes.string.isRequired,
-      location: UU5.PropTypes.string.isRequired
+      id: UU5.PropTypes.string.isRequired,
+      name: UU5.PropTypes.string.isRequired,
+      capacity: UU5.PropTypes.number.isRequired,
     }),
     //@@viewOn:propTypes
     onSubmit: UU5.PropTypes.func,

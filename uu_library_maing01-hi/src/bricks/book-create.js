@@ -27,8 +27,11 @@ const BookCreate = createComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ onCreate }) {
+  render({ onCreate, locationList }) {
     //@viewOn:hooks
+
+    
+    
     const [mode, setMode] = useState(Mode.BUTTON);
     //@viewOff:hooks
 
@@ -53,7 +56,7 @@ const BookCreate = createComponent({
     }
 
     function renderForm() {
-      return <BookCreateForm onSave={handleSave} onCancel={handleCancel} />;
+      return <BookCreateForm locationList={locationList} onSave={handleSave} onCancel={handleCancel} />;
     }
 
     switch (mode) {

@@ -6,14 +6,29 @@ import BookList from "../bricks/book-list";
 import BookProvider from "../bricks/book-provider";
 import BookCreate from "../bricks/book-create";
 import BooksFilter from "../bricks/books-filter";
+// import LocationProvider from "../bricks/location-provider";
+// import LocationList from "../bricks/location-list";
 //@@viewOff:imports
+
 
 const Books = createVisualComponent({
   //@@viewOn:statics
   displayName: Config.TAG + "Books",
   //@@viewOff:statics
+  propTypes: {
+    locations: UU5.PropTypes.array.isRequired,
 
+  },
+  //@@viewOff:propTypes
+
+  //@@viewOn:defaultProps
+  defaultProps: {
+    locations: [],
+  },
   render() {
+    // console.log(LocationProvider);
+    // console.log("++++++++++++++++++++++++");
+    
     //@@viewOn:hooks
     const createBookRef = useRef();
     const updateBookRef = useRef();
@@ -62,13 +77,23 @@ const Books = createVisualComponent({
     }
 
     function renderReady(books) {
+      // let locationList =LocationProvider(({asyncData})=>{return asyncData})
+      let locationList=[
+        {id: "49bff38c47124dcc83c20f61ae1c5d9b", location: "Storage"},
+        {id: "67a196d9e4ea4163abb54d3cb14c52b1", location: "Prague"},
+        {id: "da6a61856bb44e13bbfb33d6a0d407ac", location: "Pilsen"},
+        {id: "19a22f8ee9aa418a848dab15e396cfe7", location: "Brno"},
+        {id: "6332baf54a004da289e1ba9c793c2c78", location: "Hradec Kralove"}];
+// console.log(locationList);
+
+
       return (
         <div >
-          <BookCreate onCreate={handleCreateBook} style="float: left" />
+          <BookCreate locationList={locationList} onCreate={handleCreateBook} style="float: left" />
           <BooksFilter />
           <br />
           <br />
-          <BookList books={books} onDelete={handleDeleteBook} onUpdate={handleUpdateBook}/>
+          <BookList books={books} locationList={locationList} onDelete={handleDeleteBook} onUpdate={handleUpdateBook}/>
         </div>
       );
     }

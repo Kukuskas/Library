@@ -18,7 +18,15 @@ const Create = {
       this.code = `${Create.UC_CODE}bookDaoCreateFailed`;
       this.message = "Create book by book Dao create failed.";
     }
+  },
+
+LocationCapacityFull: class extends LibraryMainUseCaseError {
+  constructor() {
+    super(...arguments);
+    this.code = `${Create.UC_CODE}bookDaoCreateFailed`;
+    this.message = "Location is full.";
   }
+}
 };
 
 const List = {

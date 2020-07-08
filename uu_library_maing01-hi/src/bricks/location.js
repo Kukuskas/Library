@@ -35,13 +35,13 @@ const Location = createVisualComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ location, colorSchema, onDelete }) {
+  render({ location, colorSchema, onDelete, onUpdate }) {
     //@@viewOn:private
     function handleDelete() {
       onDelete(location);
     }
     function handleUpdate(values) {
-      onUpdate(values, location);
+      onUpdate( location, values);
     }
     //@@viewOff:private
 

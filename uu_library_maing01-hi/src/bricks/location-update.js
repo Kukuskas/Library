@@ -18,6 +18,7 @@ const LocationUpdate = createComponent({
   //@@viewOn:propTypes
   propTypes: {
     location: UU5.PropTypes.shape({
+      id: UU5.PropTypes.string.isRequired,
       name: UU5.PropTypes.string.isRequired,
       capacity: UU5.PropTypes.number.isRequired
     }),
@@ -31,7 +32,7 @@ const LocationUpdate = createComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ onUpdate, location }) {
+  render({  location, onUpdate }) {
     //@viewOn:hooks
     const [mode, setMode] = useState(Mode.BUTTON);
     //@viewOff:hooks

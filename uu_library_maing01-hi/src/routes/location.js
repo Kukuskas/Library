@@ -64,8 +64,6 @@ const Location = createVisualComponent({
     function renderReady(locations) {
       return (
         <>
-        Upravit location Update a dodělat kapacity :)
-        <br/>
           <LocationCreate onCreate={handleCreateLocation} />
           <LocationsFilter />
           <br />

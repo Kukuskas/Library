@@ -23,6 +23,7 @@ const Book = createVisualComponent({
     onUpdate: UU5.PropTypes.func,
     onDelete: UU5.PropTypes.func
   },
+
   //@@viewOff:propTypes
 
   //@@viewOn:defaultProps
@@ -35,8 +36,9 @@ const Book = createVisualComponent({
   },
   //@@viewOff:defaultProps
 
-  render({ book, colorSchema, onDelete, onUpdate }) {
+  render({ book, colorSchema, onDelete, onUpdate, locationList }) {
     //@@viewOn:private
+    // console.log(this.getLocationName("49bff38c47124dcc83c20f61ae1c5d9b"));
     function handleDelete() {
       onDelete(book);
     }
@@ -51,6 +53,17 @@ const Book = createVisualComponent({
           colorSchema: "red"
         });
     }
+
+    function getLocationName(id) {
+      // foreach(a in this.locationList) {
+      //   if ( a.id == id ) return a.location
+      // }
+      for (let i = 0; i < locationList.length; i++) {
+        if (locationList[i].id == id) return locationList[i].location;
+      }
+
+      // locationList.forEach(a => { if( a.id == id) return a.location });
+    }
     //@@viewOff:private
 
     //@@viewOn:render
@@ -59,20 +72,20 @@ const Book = createVisualComponent({
       return null;
     }
     //switching books location id to name (just helper for presentation)
-switch (book.location) {
-  case "49bff38c47124dcc83c20f61ae1c5d9b":  book.location= "Storage";
-    break;
-  case "67a196d9e4ea4163abb54d3cb14c52b1":  book.location= "Prague";
-    break;
-  case "da6a61856bb44e13bbfb33d6a0d407ac":  book.location= "Pilsen";
-    break;
-  case "19a22f8ee9aa418a848dab15e396cfe7":  book.location= "Brno";
-    break;
-  case "6332baf54a004da289e1ba9c793c2c78":  book.location= "Hradec Kralove";
-    break;
-  default:
-    break;
-}
+    // switch (book.location) {
+    //   case "49bff38c47124dcc83c20f61ae1c5d9b":  book.location= "Storage";
+    //     break;
+    //   case "67a196d9e4ea4163abb54d3cb14c52b1":  book.location= "Prague";
+    //     break;
+    //   case "da6a61856bb44e13bbfb33d6a0d407ac":  book.location= "Pilsen";
+    //     break;
+    //   case "19a22f8ee9aa418a848dab15e396cfe7":  book.location= "Brno";
+    //     break;
+    //   case "6332baf54a004da289e1ba9c793c2c78":  book.location= "Hradec Kralove";
+    //     break;
+    //   default:
+    //     break;
+    // }
     return (
       <UU5.Bricks.Card
         colorSchema={colorSchema}
@@ -105,7 +118,7 @@ switch (book.location) {
             float: left;
             width: 15%"
         >
-          {book.location}
+          {getLocationName(book.location)}
         </UU5.Bricks.Text>
         <UU5.Bricks.Button
           onClick={handleDelete}

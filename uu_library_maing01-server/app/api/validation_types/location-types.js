@@ -1,17 +1,13 @@
 const locationCreateDtoInType = shape({
   name: string(255).isRequired(),
   capacity: integer(10000000).isRequired(),
-  id: id().isRequired(),
 });
 
 const locationUpdateDtoInType = shape({
   id: id().isRequired(),
   name: string(255).isRequired(),
-  capacity: integer(10000000).isRequired()
-});
-
-const locationAddBookToLocationDtoInType = shape({
-  id: id().isRequired(),
+  capacity: integer(10000000).isRequired(),
+  filled: integer(10000000)
 });
 
 const locationListDtoInType = shape({
