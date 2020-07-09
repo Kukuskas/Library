@@ -89,7 +89,7 @@ const Books = createVisualComponent({
 
       return (
         <div >
-          <BookCreate locationList={locationList} onCreate={handleCreateBook} style="float: left" />
+          <BookCreate onCreate={handleCreateBook} style="float: left" />
           <BooksFilter />
           <br />
           <br />

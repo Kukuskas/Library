@@ -136,12 +136,12 @@ class LocationAbl {
       WARNINGS.deleteUnsupportedKeys.code,
       Errors.Delete.InvalidDtoIn
     );
-    dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
+    // dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
 
-    dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
-    dtoIn.uuIdentityName = session.getIdentity().getName();
+    // dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
+    // dtoIn.uuIdentityName = session.getIdentity().getName();
     let dtoOut;
-    dtoIn.awid = awid;
+    // dtoIn.awid = awid;
     try {
       dtoOut = await this.dao.delete(awid, dtoIn);
     } catch (e) {

@@ -33,8 +33,8 @@ class LocationMongo extends UuObjectDao {
   }
 
   async delete(awid, location) {
-    let deletedLocation = await super.findOne({ awid, id: location.id });
-    await super.deleteOne({ awid, id: location.id });
+    let deletedLocation = await super.findOne({ awid, id: location.id });//zbytečný- navíc načítám spoustu dat
+    await super.deleteOne({ awid, id: location.id });//return tohle
     return deletedLocation;
   }
 }

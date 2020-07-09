@@ -45,7 +45,7 @@ class BooksAbl {
     dtoIn.visibility = authorizationResult.getAuthorizedProfiles().includes(AUTHORITIES_PROFILE);
 
     dtoIn.uuIdentity = session.getIdentity().getUuIdentity();
-    dtoIn.uuIdentityName = session.getIdentity().getName();
+    dtoIn.uuIdentityName = session.getIdentity().getName();//zbytečný
 
     dtoIn.awid = awid;
     
@@ -53,15 +53,22 @@ class BooksAbl {
     let location = await LocationAbl.getByID(awid, dtoIn1)
     
     if (!location) {
-      new Errors.CreateBook.BookDaoCreateFailed({ uuAppErrorMap }, e);
+      new Errors.CreateBook.BookDaoCreateFailed({ uuAppErrorMap }, ""); //different error (location doesn't exist)
     }
 
     let dtoOut;
+    (location.filled>=location.capacity) && (new Errors.CreateBook.LocationCapacityFull({ uuAppErrorMap }, ""));
     try {
-      if (location.filled>=location.capacity) alert("Location is full!");
       dtoOut = await this.dao.create(dtoIn);
+    } catch (e) {
+      if (e instanceof ObjectStoreError) {
+        // A3
+        throw new Errors.CreateBook.BookDaoCreateFailed({ uuAppErrorMap }, e);
+      }
+      throw e;
+    };
+    try {
       location.filled += 1;
-      
       location = await LocationAbl.update(awid, location, session, authorizationResult);
     } catch (e) {
       if (e instanceof ObjectStoreError) {
@@ -69,8 +76,7 @@ class BooksAbl {
         throw new Errors.CreateBook.BookDaoCreateFailed({ uuAppErrorMap }, e);
       }
       throw e;
-    }
-
+    };
     // hds 5
     dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
